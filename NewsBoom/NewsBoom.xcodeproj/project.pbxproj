@@ -22,6 +22,8 @@
 		18C9C4372583EE4A00C8129D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C9C4362583EE4A00C8129D /* Assets.xcassets */; };
 		18C9C43A2583EE4A00C8129D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C9C4382583EE4A00C8129D /* LaunchScreen.storyboard */; };
 		18C9C44D2584002300C8129D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9C44C2584002300C8129D /* Helper.swift */; };
+		18E1118F25854EA8004D7261 /* SlidingContainerSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1118D25854EA8004D7261 /* SlidingContainerSliderView.swift */; };
+		18E1119025854EA8004D7261 /* SlidingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1118E25854EA8004D7261 /* SlidingContainerViewController.swift */; };
 		8A01BCA0152F2F793D7A4CC8 /* Pods_NewsBoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4767C4D251B4D43D343AE593 /* Pods_NewsBoom.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		18C9C4392583EE4A00C8129D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C9C43B2583EE4A00C8129D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C9C44C2584002300C8129D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		18E1118D25854EA8004D7261 /* SlidingContainerSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingContainerSliderView.swift; sourceTree = "<group>"; };
+		18E1118E25854EA8004D7261 /* SlidingContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingContainerViewController.swift; sourceTree = "<group>"; };
 		466CD22FBACD7DE6890453E9 /* Pods-NewsBoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsBoom.release.xcconfig"; path = "Target Support Files/Pods-NewsBoom/Pods-NewsBoom.release.xcconfig"; sourceTree = "<group>"; };
 		4767C4D251B4D43D343AE593 /* Pods_NewsBoom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsBoom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		734E47414726BEA6E929B3C4 /* Pods-NewsBoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsBoom.debug.xcconfig"; path = "Target Support Files/Pods-NewsBoom/Pods-NewsBoom.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		180DE1552584EAD20026E05D /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				18E1118C25854EA8004D7261 /* SlidingController */,
 				180DE15E2584F0880026E05D /* SVMenuController */,
 			);
 			path = CustomControl;
@@ -151,6 +156,15 @@
 				180DE1522584E2780026E05D /* Constant.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		18E1118C25854EA8004D7261 /* SlidingController */ = {
+			isa = PBXGroup;
+			children = (
+				18E1118D25854EA8004D7261 /* SlidingContainerSliderView.swift */,
+				18E1118E25854EA8004D7261 /* SlidingContainerViewController.swift */,
+			);
+			path = SlidingController;
 			sourceTree = "<group>";
 		};
 		49CDD8B45DEC3FF8D732E2F1 /* Pods */ = {
@@ -286,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C9C4322583EE4900C8129D /* ViewController.swift in Sources */,
+				18E1119025854EA8004D7261 /* SlidingContainerViewController.swift in Sources */,
 				18C9C42E2583EE4900C8129D /* AppDelegate.swift in Sources */,
 				180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */,
 				180DE1532584E2780026E05D /* Constant.swift in Sources */,
@@ -295,6 +310,7 @@
 				18C9C44D2584002300C8129D /* Helper.swift in Sources */,
 				180DE16F258501890026E05D /* ChooseLanguageViewController.swift in Sources */,
 				180DE1622584F0AA0026E05D /* SWRevealViewController.m in Sources */,
+				18E1118F25854EA8004D7261 /* SlidingContainerSliderView.swift in Sources */,
 				180DE17225850D980026E05D /* LoginViewController.swift in Sources */,
 				180DE16B2584F7AC0026E05D /* DashBoardViewController.swift in Sources */,
 			);

@@ -16,14 +16,12 @@ PODS:
     - FBSDKLoginKit/Login (= 5.15.1)
   - FBSDKLoginKit/Login (5.15.1):
     - FBSDKCoreKit (~> 5.0)
-  - SlidingContainerViewController (0.0.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - FacebookCore
   - FacebookLogin
-  - SlidingContainerViewController
   - SwiftyJSON
 
 SPEC REPOS:
@@ -33,7 +31,6 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
-    - SlidingContainerViewController
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -42,9 +39,8 @@ SPEC CHECKSUMS:
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
-  SlidingContainerViewController: b69a83a7b77f26a874d7d746d9a25d36cdd6958e
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 7589794a82a54aee8e738c5090566122dd9a4e05
+PODFILE CHECKSUM: d8368deccd73821bd624f17fd368f01bfc161f9e
 
 COCOAPODS: 1.9.1
