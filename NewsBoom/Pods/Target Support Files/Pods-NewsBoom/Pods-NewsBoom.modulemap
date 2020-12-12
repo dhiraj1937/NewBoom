@@ -1,0 +1,6 @@
+framework module Pods_NewsBoom {
+  umbrella header "Pods-NewsBoom-umbrella.h"
+
+  export *
+  module * { export * }
+}
