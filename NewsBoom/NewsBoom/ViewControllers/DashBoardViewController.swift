@@ -10,6 +10,8 @@ import Foundation
 class DashBoardViewController: UIViewController,SlidingContainerViewControllerDelegate {
     
     var revealController:SWRevealViewController? = nil
+    var blogPosts: [ParentCategory]=[ParentCategory]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true);
@@ -38,28 +40,38 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        SetUptabs()
+        GetAllParentCategoryData();
     }
     
-    func SetUptabs(){
-        let vc1 = viewControllerWithColorAndTitle(UIColor.white, title: "First View Controller")
-        let vc2 = viewControllerWithColorAndTitle(UIColor.white, title: "Second View Controller")
-        let vc3 = viewControllerWithColorAndTitle(UIColor.white, title: "Third View Controller")
-        let vc4 = viewControllerWithColorAndTitle(UIColor.white, title: "Forth View Controller")
+   public func SetUptabs(){
+        var titleArray:[String] = [String]()
+        var vcArray:[UIViewController]=[UIViewController]()
+        for blog in self.blogPosts {
+            titleArray.append(blog.Title)
+            vcArray.append(viewControllerWithColorAndTitle(UIColor.white, title: blog.Title))
+        }
+//        let vc1 = viewControllerWithColorAndTitle(UIColor.white, title: "First View Controller")
+//        let vc2 = viewControllerWithColorAndTitle(UIColor.white, title: "Second View Controller")
+//        let vc3 = viewControllerWithColorAndTitle(UIColor.white, title: "Third View Controller")
+//        let vc4 = viewControllerWithColorAndTitle(UIColor.white, title: "Forth View Controller")
 
         let slidingContainerViewController = SlidingContainerViewController (
           parent: self,
-          contentViewControllers: [vc1, vc2, vc3, vc4],
-          titles: ["First", "Second", "Third", "Forth"])
+          contentViewControllers: vcArray,
+          titles: titleArray)
 
-        slidingContainerViewController.view.frame = CGRect.init(x: 0, y: 90, width: self.view.frame.size.width, height: self.view.frame.size.height-90)
+        slidingContainerViewController.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         view.addSubview(slidingContainerViewController.view)
 
         slidingContainerViewController.sliderView.appearance.outerPadding = 0
-        slidingContainerViewController.sliderView.appearance.innerPadding = 50
-        slidingContainerViewController.sliderView.appearance.fixedWidth = true
+        slidingContainerViewController.sliderView.appearance.innerPadding = 30
+        slidingContainerViewController.sliderView.appearance.fixedWidth = false
         slidingContainerViewController.setCurrentViewControllerAtIndex(0)
         slidingContainerViewController.sliderView.appearance.backgroundColor = UIColor.white
+        slidingContainerViewController.sliderView.layer.shadowColor = UIColor.lightGray.cgColor
+        slidingContainerViewController.sliderView.layer.shadowRadius=4;
+        slidingContainerViewController.sliderView.layer.shadowOpacity=1
+        slidingContainerViewController.sliderView.layer.shadowOffset=CGSize(width: 0 , height:2)
         slidingContainerViewController.sliderView.appearance.selectorColor = Constant.appColor
         slidingContainerViewController.sliderView.appearance.selectedTextColor = Constant.appColor
         slidingContainerViewController.delegate = self

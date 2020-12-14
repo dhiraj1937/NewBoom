@@ -17,3 +17,20 @@ class Menu: NSObject {
         self.name = name;
     }
 }
+
+public class ParentCategory:Decodable {
+    var  Id:String;
+    var Title:String;
+    var EntDt:String
+    var Status:String
+    var child:String
+    init(id: String, title: String,entDt: String, status: String,child: String) {
+        self.Id = id
+        self.Title = title
+        self.EntDt = entDt
+        self.Status = status
+        self.child = child
+    }
+}
+
+

@@ -39,7 +39,7 @@ public class SlidingContainerViewController: UIViewController, UIScrollViewDeleg
     sliderView = SlidingContainerSliderView (width: view.frame.size.width, titles: titles)
     sliderView.frame.origin.y = parent.topLayoutGuide.length
     sliderView.sliderDelegate = self
-
+    
     contentScrollView = UIScrollView (frame: view.frame)
     contentScrollView.showsHorizontalScrollIndicator = false
     contentScrollView.showsVerticalScrollIndicator = false
@@ -50,7 +50,8 @@ public class SlidingContainerViewController: UIViewController, UIScrollViewDeleg
 
     view.addSubview(contentScrollView)
     view.addSubview(sliderView)
-
+    
+    
     // Add Child View Controllers
     var currentX: CGFloat = 0
     for vc in contentViewControllers {
@@ -60,7 +61,6 @@ public class SlidingContainerViewController: UIViewController, UIScrollViewDeleg
         width: view.frame.size.width,
         height: view.frame.size.height - parent.topLayoutGuide.length - parent.bottomLayoutGuide.length)
       contentScrollView.addSubview(vc.view)
-
       currentX += contentScrollView.frame.size.width
     }
 

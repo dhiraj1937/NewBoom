@@ -8,6 +8,8 @@ target 'NewsBoom' do
   pod 'SwiftyJSON'
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'SCLAlertView'
+  pod 'NotificationBannerSwift', '2.0.1'
   # Pods for NewsBoom
 
 end
