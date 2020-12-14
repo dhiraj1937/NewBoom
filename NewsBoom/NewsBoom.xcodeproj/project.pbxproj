@@ -15,6 +15,7 @@
 		180DE17225850D980026E05D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE17125850D980026E05D /* LoginViewController.swift */; };
 		180DE1762585364E0026E05D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE1752585364D0026E05D /* Menu.swift */; };
 		180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE17A25853A9B0026E05D /* MenuTableViewCell.swift */; };
+		18197FD52587DA80009CCF2A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18197FD42587DA80009CCF2A /* RegistrationViewController.swift */; };
 		187D7F672585E6A60061EF77 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F662585E6A60061EF77 /* DashboardController.swift */; };
 		187D7F6C2585E7840061EF77 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F6B2585E7840061EF77 /* ApiManager.swift */; };
 		18C9C42E2583EE4900C8129D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9C42D2583EE4900C8129D /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		180DE17125850D980026E05D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		180DE1752585364D0026E05D /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		180DE17A25853A9B0026E05D /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		18197FD42587DA80009CCF2A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		187D7F662585E6A60061EF77 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		187D7F6B2585E7840061EF77 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		18C9C42A2583EE4900C8129D /* NewsBoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsBoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				180DE16A2584F7AC0026E05D /* DashBoardViewController.swift */,
 				180DE16E258501890026E05D /* ChooseLanguageViewController.swift */,
 				180DE17125850D980026E05D /* LoginViewController.swift */,
+				18197FD42587DA80009CCF2A /* RegistrationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				180DE1532584E2780026E05D /* Constant.swift in Sources */,
 				180DE1672584F3AA0026E05D /* MenuViewController.swift in Sources */,
 				18C9C4302583EE4900C8129D /* SceneDelegate.swift in Sources */,
+				18197FD52587DA80009CCF2A /* RegistrationViewController.swift in Sources */,
 				187D7F672585E6A60061EF77 /* DashboardController.swift in Sources */,
 				180DE1762585364E0026E05D /* Menu.swift in Sources */,
 				18C9C44D2584002300C8129D /* Helper.swift in Sources */,

@@ -49,6 +49,54 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
+
+@IBDesignable extension UITextField {
+    @IBInspectable var leftSpace:CGFloat {
+        set {
+            leftViewMode = ViewMode.always
+            leftView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: newValue, height: frame.size.height))
+        }
+        get{
+            return 20
+            
+        }
+    }
+    
+    
+    
+    @IBInspectable var leftImage:UIImage {
+        set {
+            leftViewMode = ViewMode.always
+            let imgView = UIImageView.init(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
+            let view = UIView.init(frame: CGRect(x: 0, y: 0, width: 45, height: 30))
+            imgView.image = newValue
+            view.addSubview(imgView)
+            leftView = view
+        }
+        get{
+            return UIImage.init()
+            
+        }
+    }
+    
+    @IBInspectable var RightImage:UIImage {
+        set {
+            rightViewMode = ViewMode.always
+            let imgView = UIImageView.init(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
+            let view = UIView.init(frame: CGRect(x: 0, y: 0, width: 45, height: 30))
+            imgView.image = newValue
+            view.addSubview(imgView)
+            rightView = view
+        }
+        get{
+            return UIImage.init()
+            
+        }
+    }
+    
+}
+
+
 public extension UIViewController {
     
     func setStatusBar(backgroundColor: UIColor) {
@@ -189,6 +237,37 @@ public extension UIViewController {
         }
         
         return false
+    }
+    
+    @IBAction func btnBack_Click(){
+        self.navigationController?.popViewController(animated: true);
+    }
+    
+    @IBAction func btnLogout_Click(){
+    self.navigationController?.popToRootViewController(animated: true);
+    }
+   
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+            
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true;
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n"){
+            textView.resignFirstResponder()
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
 

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+class LoginViewController: UIViewController{
+    
+    @IBOutlet var txtEmail:UITextField!
+    @IBOutlet var txtPassword:UITextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
