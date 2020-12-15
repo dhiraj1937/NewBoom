@@ -15,7 +15,6 @@ class RegistrationViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblOTP.isHidden = true;
-        txtOtp.isHidden = true;
+        txtOtp.isEnabled = false;
     }
 }

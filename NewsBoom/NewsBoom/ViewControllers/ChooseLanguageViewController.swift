@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDelegate {
+class ChooseLanguageViewController: UIViewController {
 
     @IBOutlet var btnHindi:UIButton!
     @IBOutlet var btnEnglish:UIButton!
@@ -17,17 +17,9 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
     }
     
     @IBAction func btnContinue(){
-        let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
-        let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
-        
-        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
-        let rearNavigation = UINavigationController.init(rootViewController: menuVC)
-
-        let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
-        swvc.delegate = self;
-        swvc.rearViewRevealWidth = self.view.frame.size.width-50
-        self.navigationController?.pushViewController(swvc, animated: true);
-        
+       
+        let signupVC = Constant.storyboard.instantiateViewController(identifier:"LoginViewController") as LoginViewController
+        self.navigationController?.pushViewController(signupVC, animated: true);
     }
     
     @IBAction func btnSelectLanguage(sender:UIButton){

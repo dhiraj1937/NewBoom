@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (5.2.1)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.9.0):
@@ -16,6 +21,18 @@ PODS:
     - FBSDKLoginKit/Login (= 5.15.1)
   - FBSDKLoginKit/Login (5.15.1):
     - FBSDKCoreKit (~> 5.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
+  - GTMSessionFetcher (1.5.0):
+    - GTMSessionFetcher/Full (= 1.5.0)
+  - GTMSessionFetcher/Core (1.5.0)
+  - GTMSessionFetcher/Full (1.5.0):
+    - GTMSessionFetcher/Core (= 1.5.0)
   - MarqueeLabel/Swift (3.2.1)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
@@ -28,6 +45,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.2)
   - FacebookCore
   - FacebookLogin
+  - GoogleSignIn
   - NotificationBannerSwift (= 2.0.1)
   - SCLAlertView
   - SwiftyJSON
@@ -35,10 +53,14 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppAuth
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
     - MarqueeLabel
     - NotificationBannerSwift
     - SCLAlertView
@@ -47,16 +69,20 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
+  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 3ba55ea6af96213121ad68a7761f60f0b67c1309
+PODFILE CHECKSUM: 41081ee22ff10c9b3bfdd9c07d1d208e4478ba1a
 
 COCOAPODS: 1.9.1

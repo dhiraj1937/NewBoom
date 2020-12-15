@@ -33,4 +33,53 @@ public class ParentCategory:Decodable {
     }
 }
 
+public class SocialRegisterModel:Codable {
+    // SignBy,Firstname,Lastname,Email,SocialId
+    var SignBy:String;
+    var Firstname:String;
+    var Lastname:String
+    var Email:String
+    var SocialId:String
+    init(SignBy: String, Firstname: String,Lastname: String, Email: String,SocialId: String) {
+        self.SignBy = SignBy
+        self.Firstname = Firstname
+        self.Lastname = Lastname
+        self.Email = Email
+        self.SocialId = SocialId
+    }
+}
+
+public class RegisterModel:Codable {
+    var SignBy:String;
+    var Firstname:String;
+    var Lastname:String
+    var Email:String
+    var Password:String
+    init(SignBy: String, Firstname: String,Lastname: String, Email: String,Password: String) {
+        self.SignBy = SignBy
+        self.Firstname = Firstname
+        self.Lastname = Lastname
+        self.Email = Email
+        self.Password = Password
+    }
+}
+
+//public class Data:Decodable{
+//    var height:Int
+//    var is_silhouette:Bool
+//    var width:Int
+//    var url:String
+//}
+//
+//public class Picture:Decodable{
+//    var data:Data
+//}
+//
+//public class FacebookUserInfo : Decodable{
+//    var id:String;
+//    var picture:Picture
+//    var email:String
+//    var name:String
+//}
+
 

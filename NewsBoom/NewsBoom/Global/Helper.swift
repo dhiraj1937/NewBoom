@@ -298,3 +298,48 @@ class CustomBannerColors: BannerColorsProtocol {
 
 }
 
+extension Encodable {
+  var dictionary: [String: Any]? {
+    guard let data = try? JSONEncoder().encode(self) else { return nil }
+    return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+  }
+}
+
+extension String {
+    public init(deviceToken: Data) {
+        self = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
+    }
+    var parseJSONString: AnyObject? {
+        
+        let data = self.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        do{
+            
+            if let jsonData = data {
+                return try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+            } else {
+                // Lossless conversion of the string was not possible
+                return nil
+            }
+        }
+        catch let error{
+            
+        }
+         return nil
+    }
+    
+    var html2Attributed: NSAttributedString? {
+        do {
+            guard let data = data(using: String.Encoding.utf8) else {
+                return nil
+            }
+            return try NSAttributedString(data: data,
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("error: ", error)
+            return nil
+        }
+    }
+}
+
