@@ -64,22 +64,80 @@ public class RegisterModel:Codable {
     }
 }
 
-//public class Data:Decodable{
-//    var height:Int
-//    var is_silhouette:Bool
-//    var width:Int
-//    var url:String
-//}
-//
-//public class Picture:Decodable{
-//    var data:Data
-//}
-//
-//public class FacebookUserInfo : Decodable{
-//    var id:String;
-//    var picture:Picture
-//    var email:String
-//    var name:String
-//}
+public class HomeNewsModel:Decodable {
+    var  Id:String;
+    var Title:String;
+    var Slug:String
+    var Content:String
+    var YoutubeUrl:String
+    var NewsViews:String
+    var NewsShared:String
+    var EntDt:String
+    var EntBy:String
+    var ModDt:String
+    var Status:String
+    var NewsImg:[String]
+    var NewsVideo:[String]
+    var NewsAudio:[String]
+    init(Id: String, Title: String,Slug: String, Content: String,YoutubeUrl:String,NewsViews:String,NewsShared:String,EntDt:String,EntBy:String,ModDt:String,Status:String,NewsImg:[String],NewsVideo:[String],NewsAudio:[String]) {
+        self.Id = Id
+        self.Title = Title
+        self.Slug = Slug
+        self.Content = Content
+        self.YoutubeUrl = YoutubeUrl
+        self.NewsViews = NewsViews
+        self.NewsShared = NewsShared
+        self.EntDt = EntDt
+        self.EntBy = EntBy
+        self.ModDt = ModDt
+        self.Status = Status
+        self.NewsImg = NewsImg
+        self.NewsVideo = NewsVideo
+        self.NewsAudio = NewsAudio
+    }
+}
 
+public class AdvertiseModel:Decodable{
+    var  Id:String;
+    var Title:String;
+    var Link:String
+    var Img:String
+    init(Id: String, Title: String,Link: String, Img: String) {
+        self.Id = Id
+        self.Title = Title
+        self.Link = Link
+        self.Img = Img
+    }
+}
 
+public class NewsModel:Decodable{
+    var Id:String;
+    var NewsType:String;
+    var Title:String;
+    var Views:String;
+    var Link:String;
+    var Img:String;
+    var DateTime:String
+    init(Id: String, NewsType:String,Title:String, Views:String,Link:String,Img:String,DateTime:String) {
+        self.Id = Id
+        self.Title = Title
+        self.NewsType = NewsType
+        self.Views = Views
+        self.Link = Link
+        self.Img = Img
+        self.DateTime = DateTime
+    }
+}
+
+public class AllNewsModel:Decodable{
+    var Newstype:String;
+    var listModeDisNews:[NewsModel];
+    var Advertise:AdvertiseModel?;
+    var News:NewsModel?;
+    init(Newstype:String,listModeDisNews:[NewsModel],Advertise:AdvertiseModel?,News:NewsModel?) {
+        self.Advertise = Advertise;
+        self.listModeDisNews = listModeDisNews;
+        self.Newstype = Newstype;
+        self.News = News;
+    }
+}

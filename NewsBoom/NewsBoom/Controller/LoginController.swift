@@ -77,27 +77,22 @@ extension LoginViewController:GIDSignInDelegate{
     }
     
     func FacebookRegistration(socialModel:SocialRegisterModel){
-        do{
-            
-            ApiManager.sharedInstance.requestPOSTURL(Constant.customerRegistrationUrl, params:socialModel.dictionary , success: { (JSON) in
-                self.removeSpinner(onView: self.view)
-                let msg =  JSON["Message"].string
-                if((JSON["IsSuccess"].bool) != false){
-                    self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
-                }
-                else{
-                    self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
-                }
-                
-            }, failure:{ (Error) in
-                self.ShowAlertMessage(message:Error.localizedDescription , vc: self,title:"Error",bannerStyle: BannerStyle.danger)
-                self.removeSpinner(onView: self.view)
-            })
-        }
-        catch let error{
-            ShowAlertMessage(message: error.localizedDescription, vc: self,title:"Error",bannerStyle: BannerStyle.danger)
+        
+        ApiManager.sharedInstance.requestPOSTURL(Constant.customerRegistrationUrl, params:socialModel.dictionary , success: { (JSON) in
             self.removeSpinner(onView: self.view)
-        }
+            let msg =  JSON["Message"].string
+            if((JSON["IsSuccess"].bool) != false){
+                self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
+            }
+            else{
+                self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
+            }
+            
+        }, failure:{ (Error) in
+            self.ShowAlertMessage(message:Error.localizedDescription , vc: self,title:"Error",bannerStyle: BannerStyle.danger)
+            self.removeSpinner(onView: self.view)
+        })
+        
     }
     
     func fetchUserProfile(loginToken:String)
@@ -114,37 +109,33 @@ extension LoginViewController:GIDSignInDelegate{
             }
             else
             {
-                do{
-                    //
-                    //                    let jsonData =  JSON(result!).rawString()!.data(using: .utf8);
-                    //                    let picture = try JSONDecoder().decode(FacebookUserInfo.self, from: jsonData!)
-                    print("Print entire fetched result: \(JSON(result!))")
-                    var userInfo:[String:AnyObject] = [String:AnyObject]()
-                    let pictureData = JSON(result!).dictionaryObject!["picture"] as! NSDictionary
-                    let data = JSON(pictureData).dictionaryObject!["data"] as! NSDictionary
-                    let pictureUrlString  = data["url"] as! String
-                    let pictureUrl = NSURL(string: pictureUrlString)
-                    let imageData:NSData = NSData(contentsOf: pictureUrl as! URL)!
-                    if(imageData != nil){
-                        userInfo["ProfileImage"] = imageData
-                    }
-                    else{
-                        
-                        //userInfo["ProfileImage"] = Data.init() as AnyObject
-                    }
-                    userInfo["SocialId"] = JSON(result!).dictionaryObject!["id"] as AnyObject
-                    userInfo["Name"] = JSON(result!).dictionaryObject!["name"] as AnyObject
-                    userInfo["Email"] = JSON(result!).dictionaryObject!["email"] as AnyObject
-                    userInfo["Phone"] = "" as AnyObject
-                    userInfo["Address"] = JSON(result!).dictionaryObject!["location"] as AnyObject
-                    userInfo["OTP"] = "" as AnyObject?
-                    userInfo["Password"] = ""  as AnyObject?
-                    userInfo["SignBy"] = "2" as AnyObject?
-                    //userInfo["SocialId"] = "2" as AnyObject?
-                    let socialModel = SocialRegisterModel(SignBy: "2", Firstname: (userInfo["Name"] as! String) , Lastname: (userInfo["Name"] as! String) , Email: (userInfo["Email"] as! String) , SocialId: (userInfo["SocialId"] as! String))
-                    self.FacebookRegistration(socialModel: socialModel)
+                
+                print("Print entire fetched result: \(JSON(result!))")
+                var userInfo:[String:AnyObject] = [String:AnyObject]()
+                let pictureData = JSON(result!).dictionaryObject!["picture"] as! NSDictionary
+                let data = JSON(pictureData).dictionaryObject!["data"] as! NSDictionary
+                let pictureUrlString  = data["url"] as! String
+                let pictureUrl = NSURL(string: pictureUrlString)
+                let imageData:NSData = NSData(contentsOf: pictureUrl as! URL)!
+                if(imageData != nil){
+                    userInfo["ProfileImage"] = imageData
                 }
-                catch{}
+                else{
+                    
+                    //userInfo["ProfileImage"] = Data.init() as AnyObject
+                }
+                userInfo["SocialId"] = JSON(result!).dictionaryObject!["id"] as AnyObject
+                userInfo["Name"] = JSON(result!).dictionaryObject!["name"] as AnyObject
+                userInfo["Email"] = JSON(result!).dictionaryObject!["email"] as AnyObject
+                userInfo["Phone"] = "" as AnyObject
+                userInfo["Address"] = JSON(result!).dictionaryObject!["location"] as AnyObject
+                userInfo["OTP"] = "" as AnyObject?
+                userInfo["Password"] = ""  as AnyObject?
+                userInfo["SignBy"] = "2" as AnyObject?
+                //userInfo["SocialId"] = "2" as AnyObject?
+                let socialModel = SocialRegisterModel(SignBy: "2", Firstname: (userInfo["Name"] as! String) , Lastname: (userInfo["Name"] as! String) , Email: (userInfo["Email"] as! String) , SocialId: (userInfo["SocialId"] as! String))
+                self.FacebookRegistration(socialModel: socialModel)
+                
             }
             //vc.removeSpinner(onView: vc.view)
         })

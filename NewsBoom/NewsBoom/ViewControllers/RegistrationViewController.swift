@@ -12,9 +12,11 @@ class RegistrationViewController: UIViewController{
     @IBOutlet var txtName:UITextField!
     @IBOutlet var txtOtp:UITextField!
     @IBOutlet var lblOTP:UILabel!
+    @IBOutlet var btnResend:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtOtp.isEnabled = false;
+        self.txtOtp.isEnabled = false;
+        self.btnResend.isEnabled = false;
     }
 }

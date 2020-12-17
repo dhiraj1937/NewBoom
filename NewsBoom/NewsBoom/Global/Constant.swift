@@ -7,6 +7,7 @@
 
 import Foundation
 class Constant{
+    
     public static var storyboard = UIStoryboard(name: "Main", bundle: nil)
     public static var appColor:UIColor = UIColor.init(hexString: "#C00A00");
     public static var languageType:Language = Language.Hindi;
@@ -20,6 +21,7 @@ class Constant{
     public static var getRegionalDataUrl:String = Constant.GetServerURL()+"getRegionalData";
     public static var getBreakingDataUrl:String = Constant.GetServerURL()+"getBreakingData";
     public static var getLatestNewsDataUrl:String = Constant.GetServerURL()+"getLatestNewsData";
+    public static var getmostdiscussNewsDataUrl:String = Constant.GetServerURL()+"getmostdiscussNewsData";
     public static var getmostreadNewsDataUrl:String = Constant.GetServerURL()+"getmostreadNewsData";
     public static var getNewsByCategoryIdUrl:String = Constant.GetServerURL()+"getNewsByCategoryId";
     public static var newslatterUrl:String = Constant.GetServerURL()+"newslatter";

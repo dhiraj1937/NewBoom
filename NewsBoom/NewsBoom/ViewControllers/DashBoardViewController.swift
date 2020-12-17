@@ -46,6 +46,8 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
    public func SetUptabs(){
         var titleArray:[String] = [String]()
         var vcArray:[UIViewController]=[UIViewController]()
+        titleArray.append("Home")
+    vcArray.append(Constant.storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController)
         for blog in self.blogPosts {
             titleArray.append(blog.Title)
             vcArray.append(viewControllerWithColorAndTitle(UIColor.white, title: blog.Title))
