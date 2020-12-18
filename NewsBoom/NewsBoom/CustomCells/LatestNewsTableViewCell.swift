@@ -17,6 +17,13 @@ class LatestNewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func SetData(newsModel:AllNewsModel){
+        icon.imageFromServerURL(urlString: newsModel.News!.Img)
+        lblTilte.text = newsModel.News?.Title;
+        lblCount.text = newsModel.News?.Views;
+        lbldate.text = newsModel.News?.DateTime;
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

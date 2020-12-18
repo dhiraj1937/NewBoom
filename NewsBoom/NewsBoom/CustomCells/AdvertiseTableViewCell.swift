@@ -15,7 +15,10 @@ class AdvertiseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    public func SetData(advertiseModel:AdvertiseModel){
+        icon.imageFromServerURL(urlString: advertiseModel.Img);
+        lblTilte.text = advertiseModel.Title
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

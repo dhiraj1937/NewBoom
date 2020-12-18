@@ -76,9 +76,9 @@ public class HomeNewsModel:Decodable {
     var EntBy:String
     var ModDt:String
     var Status:String
-    var NewsImg:[String]
-    var NewsVideo:[String]
-    var NewsAudio:[String]
+    var NewsImg:[String]?
+    var NewsVideo:[String]?
+    var NewsAudio:[String]?
     init(Id: String, Title: String,Slug: String, Content: String,YoutubeUrl:String,NewsViews:String,NewsShared:String,EntDt:String,EntBy:String,ModDt:String,Status:String,NewsImg:[String],NewsVideo:[String],NewsAudio:[String]) {
         self.Id = Id
         self.Title = Title
