@@ -50,7 +50,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             return 100;
         }
         else if(newsModel.Newstype == "MR"){
-            return 230;
+            return 250;
         }
         return 0;
     }
@@ -84,8 +84,8 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             }
             
             self.removeSpinner(onView: self.view)
-            //self.GetMostReadNewsData()
-            self.GetLatestNewData()
+            self.GetMostReadNewsData()
+            //self.GetLatestNewData()
         }, failure: { (Error) in
             self.ShowAlertMessage(message: Error.localizedDescription, vc: self,title:"Error",bannerStyle: BannerStyle.danger)
             self.removeSpinner(onView: self.view)

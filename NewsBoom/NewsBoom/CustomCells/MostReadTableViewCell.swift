@@ -45,6 +45,6 @@ extension MostReadTableViewCell : UICollectionViewDelegate,UICollectionViewDataS
 
 extension MostReadTableViewCell:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 375, height: 230)
+            return CGSize(width: 363, height: 250)
         }
 }
