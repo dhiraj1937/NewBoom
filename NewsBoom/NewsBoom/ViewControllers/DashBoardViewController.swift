@@ -14,7 +14,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true);
+        
         revealController = self.revealViewController()
         revealController!.panGestureRecognizer()
         revealController!.tapGestureRecognizer()
@@ -25,8 +25,8 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         
         let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: "search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.openCloseMenu))
         rightBarButton.tintColor = Constant.appColor;
-      
-        let menuBarButton = UIBarButtonItem.init(image: UIImage.init(named: "dotMenu"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.openCloseMenu))
+        
+        let menuBarButton = UIBarButtonItem.init(image: UIImage.init(named: "dotMenu"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.ShowHeaderMenu))
         menuBarButton.tintColor = Constant.appColor;
         
         self.navigationItem.leftBarButtonItem = barButton;
@@ -35,36 +35,57 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         let logo = UIImage(named: "navigationLogo.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
+        GetAllParentCategoryData();
+    }
+    
+    @objc func ShowHeaderMenu(){
+        
+        let TitleString = NSAttributedString(string: "", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : Constant.appColor])
+        let MessageString = NSAttributedString(string: "Action", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : Constant.appColor])
 
+        
+        let alert = UIAlertController(title: "", message: "Action", preferredStyle: .actionSheet)
+        alert.setValue(TitleString, forKey: "attributedTitle")
+        alert.setValue(MessageString, forKey: "attributedMessage")
+        
+        alert.addAction(UIAlertAction(title: "Login", style: .default , handler:{ (UIAlertAction)in
+            UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[1])!, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        alert.view.tintColor = Constant.appColor;
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GetAllParentCategoryData();
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
     
-   public func SetUptabs(){
+    public func SetUptabs(){
         var titleArray:[String] = [String]()
         var vcArray:[UIViewController]=[UIViewController]()
         titleArray.append("Home")
-    vcArray.append(Constant.storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController)
+        vcArray.append(Constant.storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController)
         for blog in self.blogPosts {
             titleArray.append(blog.Title)
-            vcArray.append(viewControllerWithColorAndTitle(UIColor.white, title: blog.Title))
+            let subCategoryVC = Constant.storyboard.instantiateViewController(withIdentifier: "SubCategoryNewsViewController") as! SubCategoryNewsViewController
+            subCategoryVC.catID = blog.Id.description
+            vcArray.append(subCategoryVC)
         }
-//        let vc1 = viewControllerWithColorAndTitle(UIColor.white, title: "First View Controller")
-//        let vc2 = viewControllerWithColorAndTitle(UIColor.white, title: "Second View Controller")
-//        let vc3 = viewControllerWithColorAndTitle(UIColor.white, title: "Third View Controller")
-//        let vc4 = viewControllerWithColorAndTitle(UIColor.white, title: "Forth View Controller")
-
+        
         let slidingContainerViewController = SlidingContainerViewController (
-          parent: self,
-          contentViewControllers: vcArray,
-          titles: titleArray)
-
+            parent: self,
+            contentViewControllers: vcArray,
+            titles: titleArray)
+        
         slidingContainerViewController.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         view.addSubview(slidingContainerViewController.view)
-
+        
         slidingContainerViewController.sliderView.appearance.outerPadding = 0
         slidingContainerViewController.sliderView.appearance.innerPadding = 30
         slidingContainerViewController.sliderView.appearance.fixedWidth = false
@@ -84,21 +105,19 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     }
     
     func viewControllerWithColorAndTitle (_ color: UIColor, title: String) -> UIViewController {
-      let vc = UIViewController ()
-      vc.view.backgroundColor = color
-
-      let label = UILabel (frame: vc.view.frame)
-      label.textColor = UIColor.black
-      label.textAlignment = .center
-      label.font = UIFont (name: "HelveticaNeue-Light", size: 25)
-      label.text = title
-
-      label.sizeToFit()
-      label.center = view.center
-
-      vc.view.addSubview(label)
-
-      return vc
+        let vc = UIViewController ()
+        vc.view.backgroundColor = color
+        
+        let label = UILabel (frame: vc.view.frame)
+        label.textColor = UIColor.black
+        label.textAlignment = .center
+        label.font = UIFont (name: "HelveticaNeue-Light", size: 25)
+        label.text = title
+        
+        label.sizeToFit()
+        label.center = view.center
+        vc.view.addSubview(label)
+        return vc
     }
 }
 
@@ -106,15 +125,15 @@ extension DashBoardViewController
 {
     // MARK: SlidingContainerViewControllerDelegate
     func slidingContainerViewControllerDidMoveToViewController(_ slidingContainerViewController: SlidingContainerViewController, viewController: UIViewController, atIndex: Int) {
-
+        
     }
-
+    
     func slidingContainerViewControllerDidShowSliderView(_ slidingContainerViewController: SlidingContainerViewController) {
-
+        
     }
-
+    
     func slidingContainerViewControllerDidHideSliderView(_ slidingContainerViewController: SlidingContainerViewController) {
-
+        
     }
     
 }

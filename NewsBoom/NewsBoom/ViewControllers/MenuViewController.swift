@@ -33,7 +33,7 @@ class MenuViewController: UIViewController {
 
 }
 
-extension MenuViewController : UITableViewDataSource,UITabBarDelegate
+extension MenuViewController : UITableViewDataSource,UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuList.count;
@@ -49,5 +49,16 @@ extension MenuViewController : UITableViewDataSource,UITabBarDelegate
             cell.contentView.backgroundColor = UIColor.init(hexString: "#DCDCDC");
         }
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 3){
+            
+            UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[0])!, animated: true)
+        }
+        else if(indexPath.row == 4){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "EBookViewController") as EBookViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

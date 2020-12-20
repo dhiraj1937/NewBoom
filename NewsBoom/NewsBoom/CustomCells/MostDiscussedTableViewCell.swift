@@ -47,6 +47,12 @@ extension MostDiscussedTableViewCell : UICollectionViewDelegate,UICollectionView
 
 extension MostDiscussedTableViewCell:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 375, height: 204)
+            return CGSize(width: collectionView.frame.width, height: 204)
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newModel = listNewsModel[indexPath.row];
+        let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+        vc.newsHomeModel = newModel.homeNewsModel;
+        Constant.GetCurrentVC().navigationController!.pushViewController(vc, animated: true)
+    }
 }

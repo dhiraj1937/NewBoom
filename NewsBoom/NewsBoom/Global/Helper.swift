@@ -144,8 +144,8 @@ public extension UIViewController {
         }
         banner = FloatGrowingNotificationBanner(title: title, subtitle: message, style: bannerStyle,colors: CustomBannerColors())
         banner!.layer.cornerRadius = 5;
-       
-        banner!.show(on: vc,
+        
+        banner!.show(bannerPosition:BannerPosition.bottom ,on: vc,
         cornerRadius: 8,
         shadowColor: UIColor(red: 0.431, green: 0.459, blue: 0.494, alpha: 1),
         shadowBlurRadius: 16,
@@ -241,6 +241,8 @@ public extension UIViewController {
         return false
     }
     
+    
+    
     @IBAction func btnBack_Click(){
         self.navigationController?.popViewController(animated: true);
     }
@@ -271,6 +273,8 @@ public extension UIViewController {
             return true;
         }
     }
+    
+
 }
 
 class CustomBannerColors: BannerColorsProtocol {
@@ -346,7 +350,7 @@ extension String {
 }
 extension UIImageView {
     public func imageFromServerURL(urlString: String) {
-        self.image = nil
+        self.image = UIImage.init(named: "splash-logo")
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         URLSession.shared.dataTask(with: NSURL(string: encodedURL!)! as URL, completionHandler: { (data, response, error) -> Void in
             if error != nil {
@@ -432,3 +436,46 @@ extension UIView {
         
     }
 }
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}
+
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
+
+extension NSMutableAttributedString {
+
+    func setColor(color: UIColor, forText stringValue: String) {
+       let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+    }
+
+}
+
+
+

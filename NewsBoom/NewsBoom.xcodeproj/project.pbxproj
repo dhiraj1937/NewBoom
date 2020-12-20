@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180632C9258FBD3400C33ECC /* EBookCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180632C8258FBD3400C33ECC /* EBookCollectionCell.swift */; };
+		180632CC258FBE2B00C33ECC /* EPaperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180632CB258FBE2B00C33ECC /* EPaperController.swift */; };
 		180DE1532584E2780026E05D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE1522584E2780026E05D /* Constant.swift */; };
 		180DE1622584F0AA0026E05D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180DE1612584F0AA0026E05D /* SWRevealViewController.m */; };
 		180DE1672584F3AA0026E05D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE1662584F3AA0026E05D /* MenuViewController.swift */; };
@@ -17,6 +19,10 @@
 		180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE17A25853A9B0026E05D /* MenuTableViewCell.swift */; };
 		18175420258B997600C1A36E /* MostReadNewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817541F258B997600C1A36E /* MostReadNewCollectionViewCell.swift */; };
 		18197FD52587DA80009CCF2A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18197FD42587DA80009CCF2A /* RegistrationViewController.swift */; };
+		181ADBD3258F440D0011E81F /* SubCategoryNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD2258F440D0011E81F /* SubCategoryNewsViewController.swift */; };
+		181ADBD6258F44FB0011E81F /* SubCategoryNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD5258F44FB0011E81F /* SubCategoryNewsController.swift */; };
+		181ADBD9258F6B540011E81F /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */; };
+		181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBEB258FB60B0011E81F /* EBookViewController.swift */; };
 		1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */; };
 		187D7F672585E6A60061EF77 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F662585E6A60061EF77 /* DashboardController.swift */; };
 		187D7F6C2585E7840061EF77 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F6B2585E7840061EF77 /* ApiManager.swift */; };
@@ -42,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180632C8258FBD3400C33ECC /* EBookCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookCollectionCell.swift; sourceTree = "<group>"; };
+		180632CB258FBE2B00C33ECC /* EPaperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPaperController.swift; sourceTree = "<group>"; };
 		180DE1522584E2780026E05D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		180DE15F2584F0AA0026E05D /* NewsBoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewsBoom-Bridging-Header.h"; sourceTree = "<group>"; };
 		180DE1602584F0AA0026E05D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = NewsBoom/CustomControl/SWRevealViewController/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
@@ -54,6 +62,10 @@
 		180DE17A25853A9B0026E05D /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1817541F258B997600C1A36E /* MostReadNewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostReadNewCollectionViewCell.swift; sourceTree = "<group>"; };
 		18197FD42587DA80009CCF2A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		181ADBD2258F440D0011E81F /* SubCategoryNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryNewsViewController.swift; sourceTree = "<group>"; };
+		181ADBD5258F44FB0011E81F /* SubCategoryNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryNewsController.swift; sourceTree = "<group>"; };
+		181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		181ADBEB258FB60B0011E81F /* EBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookViewController.swift; sourceTree = "<group>"; };
 		1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostDiscussedCollectionCell.swift; sourceTree = "<group>"; };
 		187D7F662585E6A60061EF77 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		187D7F6B2585E7840061EF77 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
@@ -124,6 +136,9 @@
 				180DE17125850D980026E05D /* LoginViewController.swift */,
 				18197FD42587DA80009CCF2A /* RegistrationViewController.swift */,
 				18C48FD4258A0BAA0015C0A7 /* HomeViewController.swift */,
+				181ADBD2258F440D0011E81F /* SubCategoryNewsViewController.swift */,
+				181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */,
+				181ADBEB258FB60B0011E81F /* EBookViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -146,6 +161,7 @@
 				18F8A2BD258B438E006A000F /* AdvertiseTableViewCell.swift */,
 				1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */,
 				1817541F258B997600C1A36E /* MostReadNewCollectionViewCell.swift */,
+				180632C8258FBD3400C33ECC /* EBookCollectionCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -157,6 +173,8 @@
 				18B5DE872588B9740021C238 /* LoginController.swift */,
 				18938A0325893E250043E8C0 /* RegistrationController.swift */,
 				18C48FD7258A0E660015C0A7 /* HomeController.swift */,
+				181ADBD5258F44FB0011E81F /* SubCategoryNewsController.swift */,
+				180632CB258FBE2B00C33ECC /* EPaperController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,18 +398,22 @@
 				187D7F6C2585E7840061EF77 /* ApiManager.swift in Sources */,
 				18F8A2BE258B438E006A000F /* AdvertiseTableViewCell.swift in Sources */,
 				18F8A2B8258B434F006A000F /* LatestNewsTableViewCell.swift in Sources */,
+				181ADBD9258F6B540011E81F /* NewsDetailViewController.swift in Sources */,
+				181ADBD3258F440D0011E81F /* SubCategoryNewsViewController.swift in Sources */,
 				18C9C4322583EE4900C8129D /* ViewController.swift in Sources */,
 				18C48FD5258A0BAA0015C0A7 /* HomeViewController.swift in Sources */,
 				18E1119025854EA8004D7261 /* SlidingContainerViewController.swift in Sources */,
 				18C48FD8258A0E660015C0A7 /* HomeController.swift in Sources */,
 				18C9C42E2583EE4900C8129D /* AppDelegate.swift in Sources */,
 				180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */,
+				181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */,
 				180DE1532584E2780026E05D /* Constant.swift in Sources */,
 				1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */,
 				180DE1672584F3AA0026E05D /* MenuViewController.swift in Sources */,
 				18197FD52587DA80009CCF2A /* RegistrationViewController.swift in Sources */,
 				187D7F672585E6A60061EF77 /* DashboardController.swift in Sources */,
 				180DE1762585364E0026E05D /* Menu.swift in Sources */,
+				180632CC258FBE2B00C33ECC /* EPaperController.swift in Sources */,
 				18F8A2B5258B4337006A000F /* MostDiscussedTableViewCell.swift in Sources */,
 				18938A0425893E250043E8C0 /* RegistrationController.swift in Sources */,
 				18C9C44D2584002300C8129D /* Helper.swift in Sources */,
@@ -403,6 +425,8 @@
 				180DE17225850D980026E05D /* LoginViewController.swift in Sources */,
 				18175420258B997600C1A36E /* MostReadNewCollectionViewCell.swift in Sources */,
 				180DE16B2584F7AC0026E05D /* DashBoardViewController.swift in Sources */,
+				181ADBD6258F44FB0011E81F /* SubCategoryNewsController.swift in Sources */,
+				180632C9258FBD3400C33ECC /* EBookCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,19 @@ class LatestNewsTableViewCell: UITableViewCell {
         lblCount.text = newsModel.News?.Views;
         lbldate.text = newsModel.News?.DateTime;
     }
+    
+    func SetData(homeNewsModel:HomeNewsModel){
+        guard let imgArr = homeNewsModel.NewsImg else {
+            return;
+        }
+        
+        if(imgArr.count>0){
+            icon.imageFromServerURL(urlString: homeNewsModel.NewsImg![0])
+        }
+        lblTilte.text = homeNewsModel.Title;
+        lblCount.text = homeNewsModel.NewsViews;
+        lbldate.text = homeNewsModel.EntDt;
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

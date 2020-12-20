@@ -14,8 +14,15 @@ class HomeViewController: UIViewController{
     var listAllNews:[AllNewsModel] = [AllNewsModel]()
     
     @IBOutlet var tblNews:UITableView!
+    var refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad();
+        refreshControl.addTarget(self, action: #selector(self.Refresh), for: .valueChanged)
+        tblNews.addSubview(refreshControl)
+    }
+    
+    @objc func Refresh(){
+        GetAdvData();
     }
     
     override func viewWillAppear(_ animated: Bool) {

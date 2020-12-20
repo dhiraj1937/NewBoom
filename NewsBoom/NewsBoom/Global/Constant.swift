@@ -11,6 +11,7 @@ class Constant{
     public static var storyboard = UIStoryboard(name: "Main", bundle: nil)
     public static var appColor:UIColor = UIColor.init(hexString: "#C00A00");
     public static var languageType:Language = Language.Hindi;
+    public static var  globalAdvertisement:AdvertiseModel?
     
     public static var APIKey:String = "123456789123456789"
     private static var serverHindiURL:String = "https://projects.seawindsolution.com/News/Newsboom/Webservices/"
@@ -44,6 +45,25 @@ class Constant{
         else{
             return Constant.serverEnglishURL
         }
+    }
+    
+    static func GetCurrentVC()->UIViewController{
+        guard let wd = UIApplication.shared.delegate?.window else {
+            return UIViewController.init();
+        }
+        var vc = wd!.rootViewController
+        if(vc is UINavigationController){
+            vc = (vc as! UINavigationController).visibleViewController
+        }
+        return vc!;
+    }
+    
+    static func setGradientBackground(view:UIView,topColor:UIColor,bottomColor:UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [topColor, bottomColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at:0)
     }
 }
 

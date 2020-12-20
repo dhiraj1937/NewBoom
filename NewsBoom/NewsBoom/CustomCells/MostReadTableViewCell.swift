@@ -20,7 +20,6 @@ class MostReadTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
@@ -39,12 +38,18 @@ extension MostReadTableViewCell : UICollectionViewDelegate,UICollectionViewDataS
         cell.lbldate.text = newModel.DateTime
         return cell;
     }
-    
-    
 }
 
 extension MostReadTableViewCell:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 363, height: 250)
-        }
+        return CGSize(width: collectionView.frame.width, height: 260)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newModel = listNewsModel[indexPath.row];
+        let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+        vc.newsHomeModel = newModel.homeNewsModel;
+        Constant.GetCurrentVC().navigationController!.pushViewController(vc, animated: true)
+    }
+    
 }

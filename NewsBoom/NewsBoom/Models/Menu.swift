@@ -79,7 +79,8 @@ public class HomeNewsModel:Decodable {
     var NewsImg:[String]?
     var NewsVideo:[String]?
     var NewsAudio:[String]?
-    init(Id: String, Title: String,Slug: String, Content: String,YoutubeUrl:String,NewsViews:String,NewsShared:String,EntDt:String,EntBy:String,ModDt:String,Status:String,NewsImg:[String],NewsVideo:[String],NewsAudio:[String]) {
+    var ThumbImg:String?
+    init(Id: String, Title: String,Slug: String, Content: String,YoutubeUrl:String,NewsViews:String,NewsShared:String,EntDt:String,EntBy:String,ModDt:String,Status:String,NewsImg:[String],NewsVideo:[String],NewsAudio:[String],ThumbImg:String) {
         self.Id = Id
         self.Title = Title
         self.Slug = Slug
@@ -94,6 +95,7 @@ public class HomeNewsModel:Decodable {
         self.NewsImg = NewsImg
         self.NewsVideo = NewsVideo
         self.NewsAudio = NewsAudio
+        self.ThumbImg = ThumbImg
     }
 }
 
@@ -118,7 +120,8 @@ public class NewsModel:Decodable{
     var Link:String;
     var Img:String;
     var DateTime:String
-    init(Id: String, NewsType:String,Title:String, Views:String,Link:String,Img:String,DateTime:String) {
+    var homeNewsModel:HomeNewsModel
+    init(Id: String, NewsType:String,Title:String, Views:String,Link:String,Img:String,DateTime:String,homeNewsModel:HomeNewsModel) {
         self.Id = Id
         self.Title = Title
         self.NewsType = NewsType
@@ -126,6 +129,7 @@ public class NewsModel:Decodable{
         self.Link = Link
         self.Img = Img
         self.DateTime = DateTime
+        self.homeNewsModel = homeNewsModel
     }
 }
 
@@ -139,5 +143,18 @@ public class AllNewsModel:Decodable{
         self.listModeDisNews = listModeDisNews;
         self.Newstype = Newstype;
         self.News = News;
+    }
+}
+
+public class EPaperModel:Decodable{
+    var  Id:String;
+    var Title:String;
+    var Epaper:String
+    var EpaperDate:String
+    init(Id: String, Title: String,Epaper: String, EpaperDate: String) {
+        self.Id = Id
+        self.Title = Title
+        self.Epaper = Epaper
+        self.EpaperDate = EpaperDate
     }
 }
