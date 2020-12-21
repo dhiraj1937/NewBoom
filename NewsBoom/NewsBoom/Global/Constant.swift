@@ -37,6 +37,7 @@ class Constant{
     public static var getEpaperUrl:String = Constant.GetServerURL()+"getEpaper";
     public static var SendOTPUrl:String = Constant.GetServerURL()+"SendOTP";
     public static var customerRegistrationUrl:String = Constant.GetServerURL()+"customerRegistration";
+    public static var getPageUrl:String = Constant.GetServerURL()+"getPage";
     
     static func GetServerURL()->String{
         if(Constant.languageType == Language.Hindi){
@@ -61,9 +62,12 @@ class Constant{
     static func setGradientBackground(view:UIView,topColor:UIColor,bottomColor:UIColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [topColor, bottomColor]
-        gradientLayer.locations = [0.0, 1.0]
+        //gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at:0)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.frame = CGRect.zero
+        view.layer.addSublayer(gradientLayer)
     }
 }
 

@@ -252,17 +252,17 @@ public extension UIViewController {
     }
    
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        let nextTag = textField.tag + 1
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
-            nextResponder.becomeFirstResponder()
-            
-        } else {
-            textField.resignFirstResponder()
-        }
-        return true;
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        
+//        let nextTag = textField.tag + 1
+//        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+//            nextResponder.becomeFirstResponder()
+//            
+//        } else {
+//            textField.resignFirstResponder()
+//        }
+//        return true;
+//    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n"){
@@ -465,6 +465,21 @@ extension String {
     }
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
+    }
+   
+}
+
+
+@IBDesignable class GradientView: UIView {
+    @IBInspectable var topColor: UIColor = UIColor.white
+    @IBInspectable var bottomColor: UIColor = UIColor.black
+
+    override class var layerClass: AnyClass {
+        return CAGradientLayer.self
+    }
+
+    override func layoutSubviews() {
+        (layer as! CAGradientLayer).colors = [topColor.cgColor, bottomColor.cgColor]
     }
 }
 

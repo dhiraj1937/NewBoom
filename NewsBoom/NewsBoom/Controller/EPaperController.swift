@@ -20,6 +20,14 @@ extension EBookViewController:UICollectionViewDelegate,UICollectionViewDataSourc
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let epaperModel = listEpaper[indexPath.row]
+        let vc = Constant.storyboard.instantiateViewController(identifier: "FileViewerViewController") as FileViewerViewController
+        vc.fileURL = epaperModel.Epaper;
+        vc.headerTitle = epaperModel.Title;
+        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func GetEPaperList(){
         self.showSpinner(onView: self.view)

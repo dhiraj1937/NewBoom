@@ -12,7 +12,7 @@ class EBookViewController: UIViewController {
         super.viewDidLoad()
         let screenWidth = collectionView!.frame.size.width
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 10, right: 5)
         layout.itemSize = CGSize(width: screenWidth/2.1, height: screenWidth/2)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 20

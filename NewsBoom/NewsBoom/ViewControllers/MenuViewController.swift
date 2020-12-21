@@ -60,5 +60,29 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
             let vc = Constant.storyboard.instantiateViewController(identifier: "EBookViewController") as EBookViewController
             Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
         }
+        else if(indexPath.row == 6){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            vc.slug = "about-us";
+            vc.headerTitle = "About Us"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        else if(indexPath.row == 7){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            vc.slug = "contact-us";
+            vc.headerTitle = "Contact Us"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        else if(indexPath.row == 8){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            vc.slug = "term-and-condition";
+            vc.headerTitle = "Terms and Condition"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        else if(indexPath.row == 9){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            vc.slug = "privacy-policy";
+            vc.headerTitle = "Privacy Policy"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

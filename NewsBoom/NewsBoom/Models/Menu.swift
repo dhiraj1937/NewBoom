@@ -158,3 +158,16 @@ public class EPaperModel:Decodable{
         self.EpaperDate = EpaperDate
     }
 }
+
+public class OtherInfoModel:Decodable{
+    var  Id:String;
+    var Title:String;
+    var Slug:String
+    var Content:String
+    init(Id: String, Title: String,Slug: String, Content: String) {
+        self.Id = Id
+        self.Title = Title
+        self.Slug = Slug
+        self.Content = Content
+    }
+}

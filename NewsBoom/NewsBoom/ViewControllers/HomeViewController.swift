@@ -19,6 +19,7 @@ class HomeViewController: UIViewController{
         super.viewDidLoad();
         refreshControl.addTarget(self, action: #selector(self.Refresh), for: .valueChanged)
         tblNews.addSubview(refreshControl)
+        GetAdvData();
     }
     
     @objc func Refresh(){
@@ -27,6 +28,6 @@ class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GetAdvData();
+       
     }
 }

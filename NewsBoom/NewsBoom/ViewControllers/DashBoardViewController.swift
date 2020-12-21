@@ -11,7 +11,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     
     var revealController:SWRevealViewController? = nil
     var blogPosts: [ParentCategory]=[ParentCategory]()
-    
+    @IBOutlet var viewBG:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +23,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         barButton.tintColor = Constant.appColor;
         self.navigationItem.leftBarButtonItem = barButton;
         
-        let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: "search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.openCloseMenu))
+        let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: "search"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.ShowSearch))
         rightBarButton.tintColor = Constant.appColor;
         
         let menuBarButton = UIBarButtonItem.init(image: UIImage.init(named: "dotMenu"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.ShowHeaderMenu))
@@ -36,6 +36,12 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         GetAllParentCategoryData();
+    }
+    
+    @objc func ShowSearch(){
+        let vc = SearchPopupViewController.init(nibName: "SearchPopupViewController", bundle: nil)
+        vc.navigation = self.navigationController;
+        Constant.GetCurrentVC().present(vc, animated: true, completion: nil)
     }
     
     @objc func ShowHeaderMenu(){
@@ -84,7 +90,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
             titles: titleArray)
         
         slidingContainerViewController.view.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        view.addSubview(slidingContainerViewController.view)
+        self.view.addSubview(slidingContainerViewController.view)
         
         slidingContainerViewController.sliderView.appearance.outerPadding = 0
         slidingContainerViewController.sliderView.appearance.innerPadding = 30
@@ -103,22 +109,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     @objc func openCloseMenu(){
         revealController?.revealToggle(UIButton.init())
     }
-    
-    func viewControllerWithColorAndTitle (_ color: UIColor, title: String) -> UIViewController {
-        let vc = UIViewController ()
-        vc.view.backgroundColor = color
-        
-        let label = UILabel (frame: vc.view.frame)
-        label.textColor = UIColor.black
-        label.textAlignment = .center
-        label.font = UIFont (name: "HelveticaNeue-Light", size: 25)
-        label.text = title
-        
-        label.sizeToFit()
-        label.center = view.center
-        vc.view.addSubview(label)
-        return vc
-    }
+   
 }
 
 extension DashBoardViewController

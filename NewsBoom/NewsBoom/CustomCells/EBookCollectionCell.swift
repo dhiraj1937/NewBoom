@@ -16,9 +16,8 @@ class EBookCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     public func SetData(epaperModel:EPaperModel){
-        //imgBG.imageFromServerURL(urlString: epaperModel.)
         lblTitle.text = epaperModel.Title;
         lblDate.text = epaperModel.EpaperDate
-        Constant.setGradientBackground(view: viewBG, topColor: UIColor.white, bottomColor: UIColor.darkGray)
+        
     }
 }
