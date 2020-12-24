@@ -38,6 +38,8 @@ class Constant{
     public static var SendOTPUrl:String = Constant.GetServerURL()+"SendOTP";
     public static var customerRegistrationUrl:String = Constant.GetServerURL()+"customerRegistration";
     public static var getPageUrl:String = Constant.GetServerURL()+"getPage";
+    public static var userLoginUrl:String = Constant.GetServerURL()+"userLogin";
+    public static var forgotPasswordUrl:String = Constant.GetServerURL()+"forgotPassword";
     
     static func GetServerURL()->String{
         if(Constant.languageType == Language.Hindi){

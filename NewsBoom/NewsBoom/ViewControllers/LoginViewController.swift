@@ -32,4 +32,9 @@ class LoginViewController: UIViewController,SWRevealViewControllerDelegate{
         swvc.rearViewRevealWidth = self.view.frame.size.width-50
         self.navigationController?.pushViewController(swvc, animated: true);
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false);
+    }
 }

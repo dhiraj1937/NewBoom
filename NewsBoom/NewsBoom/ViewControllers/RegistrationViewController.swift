@@ -13,7 +13,9 @@ class RegistrationViewController: UIViewController{
     @IBOutlet var txtOtp:UITextField!
     @IBOutlet var lblOTP:UILabel!
     @IBOutlet var btnResend:UIButton!
+    @IBOutlet var btnSubmit:UIButton!
     
+    var receivedOTP:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtOtp.isEnabled = false;

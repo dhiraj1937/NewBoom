@@ -53,10 +53,25 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         let alert = UIAlertController(title: "", message: "Action", preferredStyle: .actionSheet)
         alert.setValue(TitleString, forKey: "attributedTitle")
         alert.setValue(MessageString, forKey: "attributedMessage")
-        
-        alert.addAction(UIAlertAction(title: "Login", style: .default , handler:{ (UIAlertAction)in
-            UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[1])!, animated: true)
-        }))
+        if((UserDefaults.standard.string(forKey: "IsLoggedIn")) != nil){
+            alert.addAction(UIAlertAction(title: "Logout", style: .default , handler:{ (UIAlertAction)in
+                if(self.navigationController?.containsViewController(ofKind: LoginViewController.self)==false){
+                    let loginVC = Constant.storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self.navigationController?.pushViewController(loginVC, animated: true)
+                }
+                else{
+                    let loginVC = self.navigationController?.GetViewControllerFromStack(ofKind: LoginViewController.self);
+                    self.navigationController?.popToViewController(loginVC!, animated: true);
+                }
+                UserDefaults.standard.removeObject(forKey: "IsLoggedIn");
+                UserDefaults.standard.synchronize()
+            }))
+        }
+        else{
+            alert.addAction(UIAlertAction(title: "Login", style: .default , handler:{ (UIAlertAction)in
+                UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[1])!, animated: true)
+            }))
+        }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
             print("User click Dismiss button")
         }))

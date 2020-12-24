@@ -64,6 +64,15 @@ public class RegisterModel:Codable {
     }
 }
 
+public class LoginModel:Codable {
+    var Email:String;
+    var Password:String;
+    init(Email: String, Password: String) {
+        self.Email = Email
+        self.Password = Password
+    }
+}
+
 public class HomeNewsModel:Decodable {
     var  Id:String;
     var Title:String;

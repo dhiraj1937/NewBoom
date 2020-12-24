@@ -82,7 +82,7 @@ extension LoginViewController:GIDSignInDelegate{
             self.removeSpinner(onView: self.view)
             let msg =  JSON["Message"].string
             if((JSON["IsSuccess"].bool) != false){
-                self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
+                self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
             }
             else{
                 self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
@@ -141,4 +141,55 @@ extension LoginViewController:GIDSignInDelegate{
         })
     }
     
+    @IBAction func btnLoginCLick(){
+        if (txtEmail.text?.count==0) {
+            ShowAlertMessage(message: "Please enter email", vc: self)
+            return;
+        }
+        else if (txtPassword.text?.count==0) {
+            ShowAlertMessage(message: "Please enter password", vc: self)
+            return;
+        }
+        let loginModle = LoginModel(Email: txtEmail.text!, Password: txtPassword.text!)
+        Login(LoginModel: loginModle)
+    }
+    
+    func Login(LoginModel:LoginModel){
+        self.showSpinner(onView: self.view)
+        ApiManager.sharedInstance.requestPOSTURL(Constant.userLoginUrl, params:LoginModel.dictionary , success: { (JSON) in
+            self.removeSpinner(onView: self.view)
+            let msg =  JSON["Message"].string
+            if((JSON["IsSuccess"].bool) != false){
+                
+                self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
+                
+                let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+                let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+                
+                let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
+                let rearNavigation = UINavigationController.init(rootViewController: menuVC)
+
+                let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
+                swvc.delegate = self;
+                swvc.rearViewRevealWidth = self.view.frame.size.width-50
+                self.navigationController?.pushViewController(swvc, animated: true);
+                UserDefaults.standard.setValue("true", forKey: "IsLoggedIn")
+                UserDefaults.standard.synchronize()
+              
+            }
+            else{
+                self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
+            }
+            
+        }, failure:{ (Error) in
+            self.ShowAlertMessage(message:Error.localizedDescription , vc: self,title:"Error",bannerStyle: BannerStyle.danger)
+            self.removeSpinner(onView: self.view)
+        })
+        
+    }
+    
+    @IBAction func btnForgetPassword(){
+        let vc = ForgetPasswordPopupViewController.init(nibName: "ForgetPasswordPopupViewController", bundle: nil)
+        Constant.GetCurrentVC().present(vc, animated: true, completion: nil)
+    }
 }

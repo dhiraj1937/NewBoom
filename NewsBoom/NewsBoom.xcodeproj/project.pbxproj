@@ -34,6 +34,9 @@
 		187D7F6C2585E7840061EF77 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F6B2585E7840061EF77 /* ApiManager.swift */; };
 		18938A0425893E250043E8C0 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18938A0325893E250043E8C0 /* RegistrationController.swift */; };
 		1897E8A12590969A0058A6EF /* FileViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E8A02590969A0058A6EF /* FileViewerViewController.swift */; };
+		18ACD6ED2595185000573C8B /* ForgetPasswordPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACD6EB2595185000573C8B /* ForgetPasswordPopupViewController.swift */; };
+		18ACD6EE2595185000573C8B /* ForgetPasswordPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ACD6EC2595185000573C8B /* ForgetPasswordPopupViewController.xib */; };
+		18ACD6F125951B7900573C8B /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACD6F025951B7900573C8B /* ForgetPasswordController.swift */; };
 		18B5DE882588B9740021C238 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DE872588B9740021C238 /* LoginController.swift */; };
 		18B5DE902588C4F20021C238 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B5DE8E2588C4F20021C238 /* GoogleSignInDependencies.framework */; };
 		18B5DE912588C4F20021C238 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B5DE8F2588C4F20021C238 /* GoogleSignIn.framework */; };
@@ -84,6 +87,9 @@
 		187D7F6B2585E7840061EF77 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		18938A0325893E250043E8C0 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		1897E8A02590969A0058A6EF /* FileViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewerViewController.swift; sourceTree = "<group>"; };
+		18ACD6EB2595185000573C8B /* ForgetPasswordPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPopupViewController.swift; sourceTree = "<group>"; };
+		18ACD6EC2595185000573C8B /* ForgetPasswordPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordPopupViewController.xib; sourceTree = "<group>"; };
+		18ACD6F025951B7900573C8B /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 		18B5DE872588B9740021C238 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		18B5DE8E2588C4F20021C238 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignInDependencies.framework; path = NewsBoom/GoogleLogin/GoogleSignInDependencies.framework; sourceTree = "<group>"; };
 		18B5DE8F2588C4F20021C238 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = NewsBoom/GoogleLogin/GoogleSignIn.framework; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 				180DE15E2584F0880026E05D /* SVMenuController */,
 				186C86F3259116600098D1B9 /* SearchPopupViewController.swift */,
 				186C86F4259116600098D1B9 /* SearchPopupViewController.xib */,
+				18ACD6EB2595185000573C8B /* ForgetPasswordPopupViewController.swift */,
+				18ACD6EC2595185000573C8B /* ForgetPasswordPopupViewController.xib */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				180632CB258FBE2B00C33ECC /* EPaperController.swift */,
 				180526E92590AAF400103698 /* OtherController.swift */,
 				180526EF2590B5AF00103698 /* SearchController.swift */,
+				18ACD6F025951B7900573C8B /* ForgetPasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 			files = (
 				18C9C43A2583EE4A00C8129D /* LaunchScreen.storyboard in Resources */,
 				18C9C4372583EE4A00C8129D /* Assets.xcassets in Resources */,
+				18ACD6EE2595185000573C8B /* ForgetPasswordPopupViewController.xib in Resources */,
 				18C9C4352583EE4900C8129D /* Main.storyboard in Resources */,
 				186C86F6259116600098D1B9 /* SearchPopupViewController.xib in Resources */,
 			);
@@ -432,6 +442,8 @@
 				180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */,
 				181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */,
 				180DE1532584E2780026E05D /* Constant.swift in Sources */,
+				18ACD6F125951B7900573C8B /* ForgetPasswordController.swift in Sources */,
+				18ACD6ED2595185000573C8B /* ForgetPasswordPopupViewController.swift in Sources */,
 				1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */,
 				180DE1672584F3AA0026E05D /* MenuViewController.swift in Sources */,
 				1897E8A12590969A0058A6EF /* FileViewerViewController.swift in Sources */,

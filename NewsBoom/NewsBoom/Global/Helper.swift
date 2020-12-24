@@ -10,7 +10,7 @@ import UIKit
 import SCLAlertView
 import NotificationBannerSwift
 class RoundedCornerView: UIView {
-
+    
     // if cornerRadius variable is set/changed, change the corner radius of the UIView
     @IBInspectable override var cornerRadius: CGFloat {
         get {
@@ -102,16 +102,16 @@ extension UIColor {
 public extension UIViewController {
     
     func setStatusBar(backgroundColor: UIColor) {
-            let statusBarFrame: CGRect
-            if #available(iOS 13.0, *) {
-                statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
-            } else {
-                statusBarFrame = UIApplication.shared.statusBarFrame
-            }
-            let statusBarView = UIView(frame: statusBarFrame)
-            statusBarView.backgroundColor = backgroundColor
-            view.addSubview(statusBarView)
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
         }
+        let statusBarView = UIView(frame: statusBarFrame)
+        statusBarView.backgroundColor = backgroundColor
+        view.addSubview(statusBarView)
+    }
     
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
@@ -146,10 +146,10 @@ public extension UIViewController {
         banner!.layer.cornerRadius = 5;
         
         banner!.show(bannerPosition:BannerPosition.bottom ,on: vc,
-        cornerRadius: 8,
-        shadowColor: UIColor(red: 0.431, green: 0.459, blue: 0.494, alpha: 1),
-        shadowBlurRadius: 16,
-        shadowEdgeInsets: UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8))
+                     cornerRadius: 8,
+                     shadowColor: UIColor(red: 0.431, green: 0.459, blue: 0.494, alpha: 1),
+                     shadowBlurRadius: 16,
+                     shadowEdgeInsets: UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8))
     }
     
     func ShowAlertMessageWithHandlesr(message:String,buttonTitle:String = "OK",title:String="",vc:UIViewController,action:@escaping () -> Void){
@@ -160,48 +160,48 @@ public extension UIViewController {
             kButtonFont: UIFont(name: "AvenirNext-Medium", size: 14)!,
             showCloseButton: false,
             circleBackgroundColor: UIColor.init(hexString: "#FBAF40")
-            )
+        )
         let alertView = SCLAlertView(appearance: appearance)
         //alertView.addButton("OK", backgroundColor: nil, textColor: nil, showTimeout: nil, action: action)
         //alertView.view.backgroundColor = UIColor.init(hexString: "#FBAF40")
         alertView.addButton("OK",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: action)
         alertView.showSuccess(title, subTitle: message)
-  
+        
     }
     
     func ShowAlertMessageWithHandlesr(message:String,buttonTitle:String = "OK",title:String="",vc:UIViewController,actionOK:@escaping () -> Void,actionCancel:@escaping () -> Void){
-          
-          let appearance = SCLAlertView.SCLAppearance(
-              kTitleFont: UIFont(name: "AvenirNext-Regular", size: 20)!,
-              kTextFont: UIFont(name: "AvenirNext-Regular", size: 14)!,
-              kButtonFont: UIFont(name: "AvenirNext-Medium", size: 14)!,
-              showCloseButton: false,
-              circleBackgroundColor: UIColor.init(hexString: "#FBAF40")
-              )
-          let alertView = SCLAlertView(appearance: appearance)
-          //alertView.addButton("OK", backgroundColor: nil, textColor: nil, showTimeout: nil, action: action)
-          //alertView.view.backgroundColor = UIColor.init(hexString: "#FBAF40")
-          alertView.addButton("OK",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: actionOK)
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "AvenirNext-Regular", size: 20)!,
+            kTextFont: UIFont(name: "AvenirNext-Regular", size: 14)!,
+            kButtonFont: UIFont(name: "AvenirNext-Medium", size: 14)!,
+            showCloseButton: false,
+            circleBackgroundColor: UIColor.init(hexString: "#FBAF40")
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        //alertView.addButton("OK", backgroundColor: nil, textColor: nil, showTimeout: nil, action: action)
+        //alertView.view.backgroundColor = UIColor.init(hexString: "#FBAF40")
+        alertView.addButton("OK",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: actionOK)
         alertView.addButton("Cancel",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: {() -> Void in
             alertView.dismiss(animated: true, completion: nil)
         })
-          alertView.showSuccess(title, subTitle: message)
-    
-      }
+        alertView.showSuccess(title, subTitle: message)
+        
+    }
     
     func ShowAlertWithTextViewWithHandlesr(message:String,buttonTitle:String = "OK",title:String="",vc:UIViewController,actionOK:@escaping () -> Void,actionCancel:@escaping () -> Void,result:@escaping (_ txt:String) -> Void,oldText:String){
-          
-          let appearance = SCLAlertView.SCLAppearance(
-              kTitleFont: UIFont(name: "AvenirNext-Regular", size: 20)!,
-              kTextFont: UIFont(name: "AvenirNext-Regular", size: 14)!,
-              kButtonFont: UIFont(name: "AvenirNext-Medium", size: 14)!,
-              showCloseButton: false,
-              circleBackgroundColor: UIColor.init(hexString: "#FBAF40")
-              )
-          let alertView = SCLAlertView(appearance: appearance)
-          let textView = alertView.addTextView()
-          textView.text = oldText;
-          alertView.addButton("OK",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: {() -> Void in
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "AvenirNext-Regular", size: 20)!,
+            kTextFont: UIFont(name: "AvenirNext-Regular", size: 14)!,
+            kButtonFont: UIFont(name: "AvenirNext-Medium", size: 14)!,
+            showCloseButton: false,
+            circleBackgroundColor: UIColor.init(hexString: "#FBAF40")
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        let textView = alertView.addTextView()
+        textView.text = oldText;
+        alertView.addButton("OK",backgroundColor:UIColor.init(hexString: "#FBAF40") ,action: {() -> Void in
             result(textView.text)
             alertView.dismiss(animated: true, completion: nil)
         })
@@ -212,8 +212,8 @@ public extension UIViewController {
         })
         textView.becomeFirstResponder()
         alertView.showEdit(title, subTitle: message,circleIconImage: UIImage(named: "Pin"))
-    
-      }
+        
+    }
     
     func ArchivedUserDefaultObject(obj:Any,key:String){
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: obj)
@@ -248,21 +248,21 @@ public extension UIViewController {
     }
     
     @IBAction func btnLogout_Click(){
-    self.navigationController?.popToRootViewController(animated: true);
+        self.navigationController?.popToRootViewController(animated: true);
     }
-   
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        
-//        let nextTag = textField.tag + 1
-//        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
-//            nextResponder.becomeFirstResponder()
-//            
-//        } else {
-//            textField.resignFirstResponder()
-//        }
-//        return true;
-//    }
+    
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //
+    //        let nextTag = textField.tag + 1
+    //        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+    //            nextResponder.becomeFirstResponder()
+    //
+    //        } else {
+    //            textField.resignFirstResponder()
+    //        }
+    //        return true;
+    //    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n"){
@@ -274,18 +274,18 @@ public extension UIViewController {
         }
     }
     
-
+    
 }
 
 class CustomBannerColors: BannerColorsProtocol {
-
+    
     internal func color(for style: BannerStyle) -> UIColor {
         switch style {
         case .danger:
-        return UIColor.init(hexString: "#cc3300")
-        break    // Your custom .danger color
+            return UIColor.init(hexString: "#cc3300")
+            break    // Your custom .danger color
         case .info:
-             return UIColor.init(hexString: "#99cc33")
+            return UIColor.init(hexString: "#99cc33")
             break        // Your custom .info color
         
         case .success:
@@ -301,14 +301,14 @@ class CustomBannerColors: BannerColorsProtocol {
         
         return UIColor.green;
     }
-
+    
 }
 
 extension Encodable {
-  var dictionary: [String: Any]? {
-    guard let data = try? JSONEncoder().encode(self) else { return nil }
-    return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
-  }
+    var dictionary: [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+    }
 }
 
 extension String {
@@ -330,7 +330,7 @@ extension String {
         catch let error{
             
         }
-         return nil
+        return nil
     }
     
     var html2Attributed: NSAttributedString? {
@@ -361,7 +361,7 @@ extension UIImageView {
                 let image = UIImage(data: data!)
                 self.image = image
             })
-
+            
         }).resume()
     }}
 extension UIView {
@@ -466,31 +466,60 @@ extension String {
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
     }
-   
+    
 }
 
 
 @IBDesignable class GradientView: UIView {
     @IBInspectable var topColor: UIColor = UIColor.white
     @IBInspectable var bottomColor: UIColor = UIColor.black
-
+    
     override class var layerClass: AnyClass {
         return CAGradientLayer.self
     }
-
+    
     override func layoutSubviews() {
         (layer as! CAGradientLayer).colors = [topColor.cgColor, bottomColor.cgColor]
     }
 }
 
 extension NSMutableAttributedString {
-
+    
     func setColor(color: UIColor, forText stringValue: String) {
-       let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
+        let range: NSRange = self.mutableString.range(of: stringValue, options: .caseInsensitive)
         self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
     }
-
+    
 }
 
-
+extension UINavigationController
+{
+    /// Given the kind of a (UIViewController subclass),
+    /// removes any matching instances from self's
+    /// viewControllers array.
+    
+    func removeAnyViewControllers(ofKind kind: AnyClass)
+    {
+        self.viewControllers = self.viewControllers.filter { !$0.isKind(of: kind)}
+    }
+    
+    /// Given the kind of a (UIViewController subclass),
+    /// returns true if self's viewControllers array contains at
+    /// least one matching instance.
+    
+    func containsViewController(ofKind kind: AnyClass) -> Bool
+    {
+        return self.viewControllers.contains(where: { $0.isKind(of: kind) })
+    }
+    
+    func  GetViewControllerFromStack(ofKind kind: AnyClass) -> UIViewController{
+        var findVC:UIViewController = UIViewController.init()
+        for vc in viewControllers {
+            if vc.isKind(of:kind) {
+                findVC = vc;
+            }
+        }
+        return findVC;
+    }
+}
 
