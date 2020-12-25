@@ -180,3 +180,57 @@ public class OtherInfoModel:Decodable{
         self.Content = Content
     }
 }
+
+public class PhotosModel:Decodable{
+    var  Id:String;
+    var Title:String;
+    var Count:Int
+    var Photograph:String
+    var EntDt:String
+    var Status:String
+    init(Id: String, Title: String,Count: Int, Photograph: String,EntDt: String,Status: String) {
+        self.Id = Id
+        self.Title = Title
+        self.Count = Count
+        self.Photograph = Photograph
+        self.Status = Status
+        self.EntDt = EntDt
+    }
+}
+
+public class PhotosSubModel:Decodable{
+    var Id:String;
+    var Photo:String;
+    var ShortDescimg:String
+    init(Id: String, Photo: String,ShortDescimg: String) {
+        self.Id = Id
+        self.Photo = Photo
+        self.ShortDescimg = ShortDescimg
+    }
+}
+
+public class VideosModel:Decodable{
+    var Id:String;
+    var ThumbImg:String;
+    var Title:String
+    init(Id: String, ThumbImg: String,Title: String) {
+        self.Id = Id
+        self.ThumbImg = ThumbImg
+        self.Title = Title
+    }
+}
+
+public class VideoSubModel:Decodable{
+    var Id:String;
+    var Title:String;
+    var Video:String
+    var EntDt:String
+    var Video_File:String
+    init(Id: String, Title: String,Video: String,Video_File:String,EntDt:String) {
+        self.Id = Id
+        self.Title = Title
+        self.Video = Video
+        self.Video_File = Video_File
+        self.EntDt = EntDt
+    }
+}

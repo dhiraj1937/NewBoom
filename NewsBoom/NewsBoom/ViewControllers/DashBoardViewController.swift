@@ -9,15 +9,15 @@ import Foundation
 
 class DashBoardViewController: UIViewController,SlidingContainerViewControllerDelegate {
     
-    var revealController:SWRevealViewController? = nil
+    public static var revealController:SWRevealViewController? = nil
     var blogPosts: [ParentCategory]=[ParentCategory]()
     @IBOutlet var viewBG:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        revealController = self.revealViewController()
-        revealController!.panGestureRecognizer()
-        revealController!.tapGestureRecognizer()
+        DashBoardViewController.revealController = self.revealViewController()
+        DashBoardViewController.revealController!.panGestureRecognizer()
+        DashBoardViewController.revealController!.tapGestureRecognizer()
         
         let barButton = UIBarButtonItem.init(image: UIImage.init(named: "menu"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashBoardViewController.openCloseMenu))
         barButton.tintColor = Constant.appColor;
@@ -122,7 +122,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     }
     
     @objc func openCloseMenu(){
-        revealController?.revealToggle(UIButton.init())
+        DashBoardViewController.revealController?.revealToggle(UIButton.init())
     }
    
 }

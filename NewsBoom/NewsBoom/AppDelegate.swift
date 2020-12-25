@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav.setNavigationBarHidden(true, animated: true)
         window?.rootViewController = nav;
         window?.makeKeyAndVisible();
+        UINavigationBar.appearance().backgroundColor = UIColor.init(hexString: "#C00A00")
         return true
     }
 

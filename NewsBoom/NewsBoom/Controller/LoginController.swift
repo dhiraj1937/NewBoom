@@ -82,7 +82,8 @@ extension LoginViewController:GIDSignInDelegate{
             self.removeSpinner(onView: self.view)
             let msg =  JSON["Message"].string
             if((JSON["IsSuccess"].bool) != false){
-                self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
+                //self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
+                self.NavigateToDashBoard()
             }
             else{
                 self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
@@ -162,19 +163,7 @@ extension LoginViewController:GIDSignInDelegate{
             if((JSON["IsSuccess"].bool) != false){
                 
                 self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
-                
-                let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
-                let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
-                
-                let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
-                let rearNavigation = UINavigationController.init(rootViewController: menuVC)
-
-                let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
-                swvc.delegate = self;
-                swvc.rearViewRevealWidth = self.view.frame.size.width-50
-                self.navigationController?.pushViewController(swvc, animated: true);
-                UserDefaults.standard.setValue("true", forKey: "IsLoggedIn")
-                UserDefaults.standard.synchronize()
+                self.NavigateToDashBoard()
               
             }
             else{
@@ -191,5 +180,21 @@ extension LoginViewController:GIDSignInDelegate{
     @IBAction func btnForgetPassword(){
         let vc = ForgetPasswordPopupViewController.init(nibName: "ForgetPasswordPopupViewController", bundle: nil)
         Constant.GetCurrentVC().present(vc, animated: true, completion: nil)
+    }
+    
+    func NavigateToDashBoard(){
+        
+        let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+        let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+        
+        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
+        let rearNavigation = UINavigationController.init(rootViewController: menuVC)
+
+        let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
+        swvc.delegate = self;
+        swvc.rearViewRevealWidth = self.view.frame.size.width-50
+        self.navigationController?.pushViewController(swvc, animated: true);
+        UserDefaults.standard.setValue("true", forKey: "IsLoggedIn")
+        UserDefaults.standard.synchronize()
     }
 }

@@ -56,6 +56,14 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
             
             UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[0])!, animated: true)
         }
+        else if(indexPath.row == 1){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "PhotosCategoryViewController") as PhotosCategoryViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        else if(indexPath.row == 2){
+            let vc = Constant.storyboard.instantiateViewController(identifier: "VideosCategoryViewController") as VideosCategoryViewController
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
         else if(indexPath.row == 4){
             let vc = Constant.storyboard.instantiateViewController(identifier: "EBookViewController") as EBookViewController
             Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
@@ -84,5 +92,6 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
             vc.headerTitle = "Privacy Policy"
             Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
         }
+        DashBoardViewController.revealController?.revealToggle(UIButton.init())
     }
 }

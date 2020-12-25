@@ -27,5 +27,9 @@ class FileViewerViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView,didFinish navigation: WKNavigation!) { print("loaded")
         removeSpinner(onView: self.view)
     }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        removeSpinner(onView: self.view)
+    }
 
 }
