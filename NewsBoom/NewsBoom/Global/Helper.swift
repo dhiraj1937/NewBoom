@@ -99,7 +99,8 @@ extension UIColor {
 }
 
 
-public extension UIViewController {
+
+extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     
     func setStatusBar(backgroundColor: UIColor) {
         let statusBarFrame: CGRect
@@ -117,15 +118,24 @@ public extension UIViewController {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.tag = -100
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let ai = UIActivityIndicatorView.init(style: .large)
-        ai.startAnimating()
-        ai.center = spinnerView.center
-        
-        DispatchQueue.main.async {
-            spinnerView.addSubview(ai)
-            onView.addSubview(spinnerView)
+        if #available(iOS 13.0, *) {
+            let ai = UIActivityIndicatorView.init(style: .large)
+            ai.startAnimating()
+            ai.center = spinnerView.center
+            DispatchQueue.main.async {
+                spinnerView.addSubview(ai)
+                onView.addSubview(spinnerView)
+            }
+        } else {
+            // Fallback on earlier versions
+            let ai = UIActivityIndicatorView(style: .whiteLarge)
+            ai.startAnimating()
+            ai.center = spinnerView.center
+            DispatchQueue.main.async {
+                spinnerView.addSubview(ai)
+                onView.addSubview(spinnerView)
+            }
         }
-        
     }
     
     func removeSpinner(onView : UIView) {
@@ -252,19 +262,19 @@ public extension UIViewController {
     }
     
     
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //
-    //        let nextTag = textField.tag + 1
-    //        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
-    //            nextResponder.becomeFirstResponder()
-    //
-    //        } else {
-    //            textField.resignFirstResponder()
-    //        }
-    //        return true;
-    //    }
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            let nextTag = textField.tag + 1
+            if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+                nextResponder.becomeFirstResponder()
+    
+            } else {
+                textField.resignFirstResponder()
+            }
+            return true;
+        }
+    
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n"){
             textView.resignFirstResponder()
             return false;
@@ -433,8 +443,8 @@ extension UIView {
         set {
             self.layer.cornerRadius = CGFloat(newValue)
         }
-        
     }
+    
 }
 
 extension UIApplication {

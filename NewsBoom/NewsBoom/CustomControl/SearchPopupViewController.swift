@@ -35,18 +35,26 @@ class SearchPopupViewController: UIViewController {
             return
         }
         self.dismiss(animated: true, completion: nil)
-        let vc = Constant.storyboard.instantiateViewController(identifier: "SearchViewController") as! SearchViewController
-        vc.searchKey = txtSearch.text;
-        navigation.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "SearchViewController") as! SearchViewController
+            vc.searchKey = txtSearch.text;
+            navigation.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+            vc.searchKey = txtSearch.text;
+            navigation.pushViewController(vc, animated: true)
+        }
+       
     }
     
 }
 
-extension SearchPopupViewController:UITextFieldDelegate{
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true;
-    }
-    
-}
+//extension SearchPopupViewController:UITextFieldDelegate{
+//    
+////    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+////        textField.resignFirstResponder()
+////        return true;
+////    }
+//    
+//}

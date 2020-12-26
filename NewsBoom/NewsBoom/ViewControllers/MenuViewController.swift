@@ -44,7 +44,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
         let menu = menuList[indexPath.row]
         cell.img.image = UIImage.init(named: menu.icon);
         cell.lblTitle.text = menu.name;
-        if(indexPath.row==0){
+        if(menu.name == "Home"){
             cell.lblTitle.textColor = Constant.appColor;
             cell.contentView.backgroundColor = UIColor.init(hexString: "#DCDCDC");
         }
@@ -57,40 +57,82 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
             UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[0])!, animated: true)
         }
         else if(indexPath.row == 1){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "PhotosCategoryViewController") as PhotosCategoryViewController
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:PhotosCategoryViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "VideosCategoryViewController") as PhotosCategoryViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "PhotosCategoryViewController") as? PhotosCategoryViewController
+            }
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 2){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "VideosCategoryViewController") as VideosCategoryViewController
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:VideosCategoryViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "VideosCategoryViewController") as VideosCategoryViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "VideosCategoryViewController") as? VideosCategoryViewController
+            }
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 4){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "EBookViewController") as EBookViewController
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:EBookViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "EBookViewController") as EBookViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "EBookViewController") as? EBookViewController
+            }
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 6){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-            vc.slug = "about-us";
-            vc.headerTitle = "About Us"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:OtherInfoViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
+            }
+            vc!.slug = "about-us";
+            vc!.headerTitle = "About Us"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 7){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-            vc.slug = "contact-us";
-            vc.headerTitle = "Contact Us"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:OtherInfoViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
+            }
+            vc!.slug = "contact-us";
+            vc!.headerTitle = "Contact Us"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 8){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-            vc.slug = "term-and-condition";
-            vc.headerTitle = "Terms and Condition"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:OtherInfoViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
+            }
+            vc!.slug = "term-and-condition";
+            vc!.headerTitle = "Terms and Condition"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 9){
-            let vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
-            vc.slug = "privacy-policy";
-            vc.headerTitle = "Privacy Policy"
-            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+            var vc:OtherInfoViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = Constant.storyboard.instantiateViewController(identifier: "OtherInfoViewController") as OtherInfoViewController
+            } else {
+                // Fallback on earlier versions
+                vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
+            }
+            vc!.slug = "privacy-policy";
+            vc!.headerTitle = "Privacy Policy"
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
         DashBoardViewController.revealController?.revealToggle(UIButton.init())
     }

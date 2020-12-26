@@ -58,7 +58,13 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsModel = listAllNews[indexPath.row]
-        let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+        var vc:NewsDetailViewController?=nil;
+        if #available(iOS 13.0, *) {
+           vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+        } else {
+            // Fallback on earlier versions
+            vc = Constant.storyboard.instantiateViewController(withIdentifier:  "NewsDetailViewController") as! NewsDetailViewController
+        }
         if(newsModel.Newstype == "MD"){
             
         }
@@ -68,8 +74,8 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             }
         }
         else if(newsModel.Newstype == "LN"){
-            vc.newsHomeModel = newsModel.News?.homeNewsModel
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc!.newsHomeModel = newsModel.News?.homeNewsModel
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if(newsModel.Newstype == "MR"){
             

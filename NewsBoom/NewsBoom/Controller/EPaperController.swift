@@ -8,6 +8,7 @@
 import Foundation
 import NotificationBannerSwift
 import SwiftyJSON
+
 extension EBookViewController:UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listEpaper.count;
@@ -22,10 +23,19 @@ extension EBookViewController:UICollectionViewDelegate,UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let epaperModel = listEpaper[indexPath.row]
-        let vc = Constant.storyboard.instantiateViewController(identifier: "FileViewerViewController") as FileViewerViewController
-        vc.fileURL = epaperModel.Epaper;
-        vc.headerTitle = epaperModel.Title;
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "FileViewerViewController") as FileViewerViewController
+            vc.fileURL = epaperModel.Epaper;
+            vc.headerTitle = epaperModel.Title;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier: "FileViewerViewController") as! FileViewerViewController
+            vc.fileURL = epaperModel.Epaper;
+            vc.headerTitle = epaperModel.Title;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     

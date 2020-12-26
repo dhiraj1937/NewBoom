@@ -21,9 +21,17 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
-        vc.newsHomeModel = listNews[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+            vc.newsHomeModel = listNews[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier:"NewsDetailViewController") as! NewsDetailViewController
+            vc.newsHomeModel = listNews[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
     func GetNewsBykeyData(serchKey:String){

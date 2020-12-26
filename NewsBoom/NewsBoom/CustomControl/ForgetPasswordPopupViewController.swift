@@ -31,10 +31,10 @@ class ForgetPasswordPopupViewController: UIViewController {
 
 }
 
-extension ForgetPasswordPopupViewController:UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true;
-    }
-    
-}
+//extension ForgetPasswordPopupViewController:UITextFieldDelegate{
+////    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+////        textField.resignFirstResponder()
+////        return true;
+////    }
+//    
+//}

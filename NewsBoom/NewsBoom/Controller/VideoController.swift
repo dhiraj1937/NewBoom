@@ -25,9 +25,17 @@ extension VideosCategoryViewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let epaperModel = listVideos[indexPath.row]
         
-        let vc = Constant.storyboard.instantiateViewController(identifier: "VideoSubcategoryViewController") as VideoSubcategoryViewController
-        vc.catId = epaperModel.Id;
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "VideoSubcategoryViewController") as VideoSubcategoryViewController
+            vc.catId = epaperModel.Id;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier: "VideoSubcategoryViewController") as! VideoSubcategoryViewController
+            vc.catId = epaperModel.Id;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+        
         
     }
     
@@ -55,6 +63,7 @@ extension VideosCategoryViewController
     
 }
 
+
 extension VideoSubcategoryViewController:UICollectionViewDelegate,UICollectionViewDataSource
 {
     
@@ -72,10 +81,19 @@ extension VideoSubcategoryViewController:UICollectionViewDelegate,UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let epaperModel = listVideos[indexPath.row]
-        let vc = Constant.storyboard.instantiateViewController(identifier: "FileViewerViewController") as FileViewerViewController
-        vc.fileURL = epaperModel.Video;
-        vc.headerTitle = epaperModel.Title;
-        Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "FileViewerViewController") as FileViewerViewController
+            vc.fileURL = epaperModel.Video;
+            vc.headerTitle = epaperModel.Title;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier: "FileViewerViewController") as! FileViewerViewController
+            vc.fileURL = epaperModel.Video;
+            vc.headerTitle = epaperModel.Title;
+            Constant.GetCurrentVC().navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
     

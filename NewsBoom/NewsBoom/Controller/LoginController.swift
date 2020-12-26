@@ -184,11 +184,19 @@ extension LoginViewController:GIDSignInDelegate{
     
     func NavigateToDashBoard(){
         
-        let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
-        let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+        var menuVC:MenuViewController? = nil;
+        var dashBoardVC:DashBoardViewController? = nil;
+        if #available(iOS 13.0, *) {
+             dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+            menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+        } else {
+            // Fallback on earlier versions
+            dashBoardVC = Constant.storyboard.instantiateViewController(withIdentifier: "DashBoardViewController") as? DashBoardViewController
+            menuVC = Constant.storyboard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+        }
         
-        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
-        let rearNavigation = UINavigationController.init(rootViewController: menuVC)
+        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC!)
+        let rearNavigation = UINavigationController.init(rootViewController: menuVC!)
 
         let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
         swvc.delegate = self;

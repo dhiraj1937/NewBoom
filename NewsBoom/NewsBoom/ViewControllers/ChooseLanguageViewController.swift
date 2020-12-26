@@ -18,20 +18,35 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
     
     @IBAction func btnContinue(){
         if((UserDefaults.standard.string(forKey: "IsLoggedIn")) != nil){
-            let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
-            let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
-            
-            let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
-            let rearNavigation = UINavigationController.init(rootViewController: menuVC)
+            var menuVC:MenuViewController? = nil;
+            var dashBoardVC:DashBoardViewController? = nil;
+            if #available(iOS 13.0, *) {
+                 dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+                menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+            } else {
+                // Fallback on earlier versions
+                dashBoardVC = Constant.storyboard.instantiateViewController(withIdentifier: "DashBoardViewController") as? DashBoardViewController
+                menuVC = Constant.storyboard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+            }
+            let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC!)
+            let rearNavigation = UINavigationController.init(rootViewController: menuVC!)
 
             let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
             swvc.delegate = self;
             swvc.rearViewRevealWidth = self.view.frame.size.width-50
             self.navigationController?.pushViewController(swvc, animated: true);
+           
         }
         else{
-            let signupVC = Constant.storyboard.instantiateViewController(identifier:"LoginViewController") as LoginViewController
-            self.navigationController?.pushViewController(signupVC, animated: true);
+            if #available(iOS 13.0, *) {
+                let signupVC = Constant.storyboard.instantiateViewController(identifier:"LoginViewController") as LoginViewController
+                self.navigationController?.pushViewController(signupVC, animated: true);
+            } else {
+                // Fallback on earlier versions
+                let vc = Constant.storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.navigationController?.pushViewController(vc, animated: true);
+            }
+            
         }
     }
     

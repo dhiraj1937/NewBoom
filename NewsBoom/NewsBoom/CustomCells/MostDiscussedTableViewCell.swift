@@ -51,8 +51,16 @@ extension MostDiscussedTableViewCell:UICollectionViewDelegateFlowLayout{
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let newModel = listNewsModel[indexPath.row];
-        let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
-        vc.newsHomeModel = newModel.homeNewsModel;
-        Constant.GetCurrentVC().navigationController!.pushViewController(vc, animated: true)
+        if #available(iOS 13.0, *) {
+            let vc = Constant.storyboard.instantiateViewController(identifier: "NewsDetailViewController") as! NewsDetailViewController
+            vc.newsHomeModel = newModel.homeNewsModel;
+            Constant.GetCurrentVC().navigationController!.pushViewController(vc, animated: true)
+        } else {
+            // Fallback on earlier versions
+            let vc = Constant.storyboard.instantiateViewController(withIdentifier:"NewsDetailViewController") as! NewsDetailViewController
+            vc.newsHomeModel = newModel.homeNewsModel;
+            Constant.GetCurrentVC().navigationController!.pushViewController(vc, animated: true)
+        }
+       
     }
 }

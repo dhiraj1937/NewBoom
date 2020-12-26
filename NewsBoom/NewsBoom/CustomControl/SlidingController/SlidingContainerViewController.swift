@@ -15,7 +15,7 @@ public protocol SlidingContainerViewControllerDelegate: class {
   func slidingContainerViewControllerDidShowSliderView(_ slidingContainerViewController: SlidingContainerViewController)
 }
 
-public class SlidingContainerViewController: UIViewController, UIScrollViewDelegate, SlidingContainerSliderViewDelegate {
+public class SlidingContainerViewController: UIViewController, SlidingContainerSliderViewDelegate {
   public var contentViewControllers: [UIViewController]!
   public var contentScrollView: UIScrollView!
   public var titles: [String]!

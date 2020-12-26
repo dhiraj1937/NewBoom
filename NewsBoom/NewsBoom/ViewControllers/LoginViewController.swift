@@ -16,16 +16,30 @@ class LoginViewController: UIViewController,SWRevealViewControllerDelegate{
     }
     
     @IBAction func btnSignUp(sender:UIButton){
-        let signupVC = Constant.storyboard.instantiateViewController(identifier:"RegistrationViewController") as RegistrationViewController
-        self.navigationController?.pushViewController(signupVC, animated: true);
+        if #available(iOS 13.0, *) {
+            let signupVC = Constant.storyboard.instantiateViewController(identifier:"RegistrationViewController") as RegistrationViewController
+            self.navigationController?.pushViewController(signupVC, animated: true);
+        } else {
+            // Fallback on earlier versions
+            let signupVC = Constant.storyboard.instantiateViewController(withIdentifier:"RegistrationViewController") as! RegistrationViewController
+            self.navigationController?.pushViewController(signupVC, animated: true);
+        }
+       
     }
     
     @IBAction func btnSkip(sender:UIButton){
-        let menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
-        let dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
-        
-        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC)
-        let rearNavigation = UINavigationController.init(rootViewController: menuVC)
+        var menuVC:MenuViewController? = nil;
+        var dashBoardVC:DashBoardViewController? = nil;
+        if #available(iOS 13.0, *) {
+             dashBoardVC = Constant.storyboard.instantiateViewController(identifier:"DashBoardViewController") as DashBoardViewController
+            menuVC = Constant.storyboard.instantiateViewController(identifier:"MenuViewController") as MenuViewController
+        } else {
+            // Fallback on earlier versions
+            dashBoardVC = Constant.storyboard.instantiateViewController(withIdentifier: "DashBoardViewController") as? DashBoardViewController
+            menuVC = Constant.storyboard.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+        }
+        let frontNavigation = UINavigationController.init(rootViewController: dashBoardVC!)
+        let rearNavigation = UINavigationController.init(rootViewController: menuVC!)
 
         let swvc:SWRevealViewController = SWRevealViewController.init(rearViewController: rearNavigation, frontViewController: frontNavigation)
         swvc.delegate = self;
