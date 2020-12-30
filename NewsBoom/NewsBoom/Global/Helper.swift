@@ -117,9 +117,9 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.tag = -100
-        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        spinnerView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
         if #available(iOS 13.0, *) {
-            let ai = UIActivityIndicatorView.init(style: .large)
+            let ai = UIActivityIndicatorView.init(style: .gray)
             ai.startAnimating()
             ai.center = spinnerView.center
             DispatchQueue.main.async {
@@ -360,7 +360,7 @@ extension String {
 }
 extension UIImageView {
     public func imageFromServerURL(urlString: String) {
-        self.image = UIImage.init(named: "splash-logo")
+        self.image = nil;//UIImage.init(named: "splash-logo")
         let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         URLSession.shared.dataTask(with: NSURL(string: encodedURL!)! as URL, completionHandler: { (data, response, error) -> Void in
             if error != nil {
@@ -533,3 +533,41 @@ extension UINavigationController
     }
 }
 
+@IBDesignable class InsetLabel: UILabel {
+    @IBInspectable var topInset: CGFloat = 0.0
+    @IBInspectable var leftInset: CGFloat = 0.0
+    @IBInspectable var bottomInset: CGFloat = 0.0
+    @IBInspectable var rightInset: CGFloat = 0.0
+    
+    var insets: UIEdgeInsets {
+        get {
+            return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        }
+        set {
+            topInset = newValue.top
+            leftInset = newValue.left
+            bottomInset = newValue.bottom
+            rightInset = newValue.right
+        }
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var adjSize = super.sizeThatFits(size)
+        adjSize.width += leftInset + rightInset
+        adjSize.height += topInset + bottomInset
+        
+        return adjSize
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.width += leftInset + rightInset
+        contentSize.height += topInset + bottomInset
+        
+        return contentSize
+    }
+}

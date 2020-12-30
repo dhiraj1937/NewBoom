@@ -20,7 +20,13 @@ class SubCategoryNewsViewController: UIViewController{
         pageCount = 1
         refreshControl.addTarget(self, action: #selector(self.Refresh), for: .valueChanged)
         tblNews.addSubview(refreshControl)
-        GetNewsByCategoryData(categoryID: catID, pageNo: pageCount.description)
+        DispatchQueue.global(qos: .background).async { [self] in
+            GetNewsByCategoryData(categoryID: catID, pageNo: pageCount.description)
+            DispatchQueue.main.async {
+                print("dispatched to main")
+              
+            }
+        }
     }
     
     @objc func Refresh(){

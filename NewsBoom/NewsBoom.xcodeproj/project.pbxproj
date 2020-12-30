@@ -61,7 +61,6 @@
 		18F8A2B8258B434F006A000F /* LatestNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8A2B7258B434F006A000F /* LatestNewsTableViewCell.swift */; };
 		18F8A2BB258B436D006A000F /* MostReadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8A2BA258B436D006A000F /* MostReadTableViewCell.swift */; };
 		18F8A2BE258B438E006A000F /* AdvertiseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F8A2BD258B438E006A000F /* AdvertiseTableViewCell.swift */; };
-		8A01BCA0152F2F793D7A4CC8 /* Pods_NewsBoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4767C4D251B4D43D343AE593 /* Pods_NewsBoom.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,7 +123,6 @@
 		18F8A2BA258B436D006A000F /* MostReadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostReadTableViewCell.swift; sourceTree = "<group>"; };
 		18F8A2BD258B438E006A000F /* AdvertiseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertiseTableViewCell.swift; sourceTree = "<group>"; };
 		466CD22FBACD7DE6890453E9 /* Pods-NewsBoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsBoom.release.xcconfig"; path = "Target Support Files/Pods-NewsBoom/Pods-NewsBoom.release.xcconfig"; sourceTree = "<group>"; };
-		4767C4D251B4D43D343AE593 /* Pods_NewsBoom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsBoom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		734E47414726BEA6E929B3C4 /* Pods-NewsBoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsBoom.debug.xcconfig"; path = "Target Support Files/Pods-NewsBoom/Pods-NewsBoom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,7 +133,6 @@
 			files = (
 				18B5DE902588C4F20021C238 /* GoogleSignInDependencies.framework in Frameworks */,
 				18B5DE912588C4F20021C238 /* GoogleSignIn.framework in Frameworks */,
-				8A01BCA0152F2F793D7A4CC8 /* Pods_NewsBoom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +305,6 @@
 			children = (
 				18B5DE8F2588C4F20021C238 /* GoogleSignIn.framework */,
 				18B5DE8E2588C4F20021C238 /* GoogleSignInDependencies.framework */,
-				4767C4D251B4D43D343AE593 /* Pods_NewsBoom.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -645,7 +641,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2A53RWCCV7;
+				DEVELOPMENT_TEAM = 5Q6BLC976V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NewsBoom/GoogleLogin",
@@ -656,9 +652,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.PODUser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = POD_Developer;
+				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
 				SWIFT_OBJC_BRIDGING_HEADER = "NewsBoom/CustomControl/SVMenuController/NewsBoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -675,7 +671,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 2A53RWCCV7;
+				DEVELOPMENT_TEAM = 5Q6BLC976V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NewsBoom/GoogleLogin",
@@ -686,9 +682,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.PODUser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seawindsolution.NewsBoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = POD_Developer;
+				PROVISIONING_PROFILE_SPECIFIER = NewBoomDevPro;
 				SWIFT_OBJC_BRIDGING_HEADER = "NewsBoom/CustomControl/SVMenuController/NewsBoom-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

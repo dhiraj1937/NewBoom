@@ -44,9 +44,13 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
         let menu = menuList[indexPath.row]
         cell.img.image = UIImage.init(named: menu.icon);
         cell.lblTitle.text = menu.name;
-        if(menu.name == "Home"){
+        if(indexPath.row == 0){
             cell.lblTitle.textColor = Constant.appColor;
             cell.contentView.backgroundColor = UIColor.init(hexString: "#DCDCDC");
+        }
+        else{
+            cell.lblTitle.textColor = UIColor.darkGray;
+            cell.contentView.backgroundColor = UIColor.white;
         }
         return cell;
     }
@@ -59,7 +63,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
         else if(indexPath.row == 1){
             var vc:PhotosCategoryViewController?=nil;
             if #available(iOS 13.0, *) {
-                vc = Constant.storyboard.instantiateViewController(identifier: "VideosCategoryViewController") as PhotosCategoryViewController
+                vc = Constant.storyboard.instantiateViewController(identifier: "PhotosCategoryViewController") as PhotosCategoryViewController
             } else {
                 // Fallback on earlier versions
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "PhotosCategoryViewController") as? PhotosCategoryViewController

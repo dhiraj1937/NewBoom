@@ -18,7 +18,9 @@ class RegistrationViewController: UIViewController{
     var receivedOTP:String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.btnResend.isHidden = true;
         self.txtOtp.isEnabled = false;
+        self.txtOtp.alpha=0.5;
         self.btnResend.isEnabled = false;
     }
 }

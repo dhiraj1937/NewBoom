@@ -112,13 +112,13 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             }
             
             self.removeSpinner(onView: self.view)
-            self.GetMostReadNewsData()
-            //self.GetLatestNewData()
+           // self.GetMostDiscussedNewData()
+            self.GetLatestNewData()
         }, failure: { (Error) in
             self.ShowAlertMessage(message: Error.localizedDescription, vc: self,title:"Error",bannerStyle: BannerStyle.danger)
             self.removeSpinner(onView: self.view)
-            self.GetMostReadNewsData()
-            //self.GetLatestNewData()
+            //self.GetMostDiscussedNewData()
+            self.GetLatestNewData()
         })
     }
     
@@ -181,11 +181,12 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 self.ShowAlertMessage(message:msg!.description , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
             }
             self.removeSpinner(onView: self.view)
-            GetLatestNewData()
+            //GetLatestNewData()
+            GetMostDiscussedNewData()
         }, failure: { [self] (Error) in
             self.ShowAlertMessage(message: Error.localizedDescription, vc: self,title:"Error",bannerStyle: BannerStyle.danger)
             self.removeSpinner(onView: self.view)
-            GetLatestNewData()
+            GetMostDiscussedNewData()
         })
         
     }
@@ -205,11 +206,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
                 self.ShowAlertMessage(message:msg!.description , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
             }
             self.removeSpinner(onView: self.view)
-            GetMostDiscussedNewData()
+            GetMostReadNewsData()
         }, failure: { [self] (Error) in
             self.ShowAlertMessage(message: Error.localizedDescription, vc: self,title:"Error",bannerStyle: BannerStyle.danger)
             self.removeSpinner(onView: self.view)
-            GetMostDiscussedNewData()
+            GetMostReadNewsData()
         })
     }
     

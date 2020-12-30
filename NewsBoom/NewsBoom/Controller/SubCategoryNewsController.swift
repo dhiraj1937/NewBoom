@@ -51,7 +51,7 @@ extension SubCategoryNewsViewController:UITableViewDelegate,UITableViewDataSourc
     
     func GetNewsByCategoryData(categoryID:String,pageNo:String){
         isLoading = true;
-        self.showSpinner(onView: self.view)
+        //self.showSpinner(onView: self.view)
         ApiManager.sharedInstance.requestGETURL(Constant.getNewsByCategoryIdUrl+"/"+categoryID+"/"+pageNo, success: { [self]
             (JSON) in
             let msg =  JSON.dictionary?["Message"]

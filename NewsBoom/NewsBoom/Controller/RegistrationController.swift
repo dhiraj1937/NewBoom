@@ -39,8 +39,10 @@ extension RegistrationViewController{
                 
                 self.txtOtp.isEnabled = true;
                 self.btnResend.isEnabled = true;
+                self.btnResend.isHidden = false;
                 self.receivedOTP = JSON["Otp"].string;
                 self.btnSubmit.tag=2;
+                self.txtOtp.alpha=1;
                 self.btnSubmit.setTitle("Submit", for: UIControl.State.normal)
                 self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
             }
