@@ -60,5 +60,6 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
         else{
             Constant.languageType = Language.English
         }
+        Constant.ResetURL();
     }
 }

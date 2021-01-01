@@ -157,6 +157,8 @@ extension LoginViewController:GIDSignInDelegate{
     
     func Login(LoginModel:LoginModel){
         self.showSpinner(onView: self.view)
+        txtEmail.resignFirstResponder();
+        txtPassword.resignFirstResponder();
         ApiManager.sharedInstance.requestPOSTURL(Constant.userLoginUrl, params:LoginModel.dictionary , success: { (JSON) in
             self.removeSpinner(onView: self.view)
             let msg =  JSON["Message"].string

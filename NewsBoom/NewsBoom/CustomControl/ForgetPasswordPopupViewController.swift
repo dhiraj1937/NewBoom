@@ -10,6 +10,8 @@ import UIKit
 class ForgetPasswordPopupViewController: UIViewController {
 
     @IBOutlet var txtEmail:UITextField!
+    @IBOutlet var lblTitle:UILabel!
+    @IBOutlet var btnSubmit:UIButton!
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         modalTransitionStyle = .crossDissolve
@@ -20,10 +22,20 @@ class ForgetPasswordPopupViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Constant.IsSubscribe = false;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(dismissView))
         self.view.addGestureRecognizer(tapGesture)
+        if(Constant.IsSubscribe){
+            lblTitle.text = "Subscribe Newsletter";
+            btnSubmit.setTitle("Submit", for: UIControl.State.normal);
+            txtEmail.placeholder = "Enter Email Id"
+        }
     }
     @objc func dismissView(){
             self.dismiss(animated: true, completion: nil)

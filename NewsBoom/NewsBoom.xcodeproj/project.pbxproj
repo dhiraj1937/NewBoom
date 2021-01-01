@@ -28,6 +28,9 @@
 		181ADBD9258F6B540011E81F /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */; };
 		181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBEB258FB60B0011E81F /* EBookViewController.swift */; };
 		1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */; };
+		185C62D5259F611F001023BB /* RegionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C62D4259F611F001023BB /* RegionalViewController.swift */; };
+		185C62D8259F683C001023BB /* RegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C62D7259F683C001023BB /* RegionController.swift */; };
+		185C62DB259F709F001023BB /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C62DA259F709F001023BB /* RegionTableViewCell.swift */; };
 		186C86F5259116600098D1B9 /* SearchPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C86F3259116600098D1B9 /* SearchPopupViewController.swift */; };
 		186C86F6259116600098D1B9 /* SearchPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186C86F4259116600098D1B9 /* SearchPopupViewController.xib */; };
 		187D7F672585E6A60061EF77 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D7F662585E6A60061EF77 /* DashboardController.swift */; };
@@ -87,6 +90,9 @@
 		181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		181ADBEB258FB60B0011E81F /* EBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookViewController.swift; sourceTree = "<group>"; };
 		1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostDiscussedCollectionCell.swift; sourceTree = "<group>"; };
+		185C62D4259F611F001023BB /* RegionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalViewController.swift; sourceTree = "<group>"; };
+		185C62D7259F683C001023BB /* RegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionController.swift; sourceTree = "<group>"; };
+		185C62DA259F709F001023BB /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		186C86F3259116600098D1B9 /* SearchPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopupViewController.swift; sourceTree = "<group>"; };
 		186C86F4259116600098D1B9 /* SearchPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPopupViewController.xib; sourceTree = "<group>"; };
 		187D7F662585E6A60061EF77 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				1883B3332595F19000BDBC09 /* PhotoSubCateogryViewController.swift */,
 				1883B3362595F61D00BDBC09 /* VideosCategoryViewController.swift */,
 				18BC5A9C259642AA003B8E10 /* VideoSubcategoryViewController.swift */,
+				185C62D4259F611F001023BB /* RegionalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 				1817541F258B997600C1A36E /* MostReadNewCollectionViewCell.swift */,
 				180632C8258FBD3400C33ECC /* EBookCollectionCell.swift */,
 				189A75342595E32E00E4E879 /* PhotosCollectionViewCell.swift */,
+				185C62DA259F709F001023BB /* RegionTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 				18ACD6F025951B7900573C8B /* ForgetPasswordController.swift */,
 				189A75372595E48F00E4E879 /* PhotoCategoryController.swift */,
 				1883B3392595F65500BDBC09 /* VideoController.swift */,
+				185C62D7259F683C001023BB /* RegionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -444,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185C62D8259F683C001023BB /* RegionController.swift in Sources */,
 				187D7F6C2585E7840061EF77 /* ApiManager.swift in Sources */,
 				180526E72590A9E500103698 /* OtherInfoViewController.swift in Sources */,
 				18F8A2BE258B438E006A000F /* AdvertiseTableViewCell.swift in Sources */,
@@ -451,6 +461,7 @@
 				18BC5A9D259642AA003B8E10 /* VideoSubcategoryViewController.swift in Sources */,
 				181ADBD9258F6B540011E81F /* NewsDetailViewController.swift in Sources */,
 				180526F02590B5AF00103698 /* SearchController.swift in Sources */,
+				185C62D5259F611F001023BB /* RegionalViewController.swift in Sources */,
 				181ADBD3258F440D0011E81F /* SubCategoryNewsViewController.swift in Sources */,
 				18C9C4322583EE4900C8129D /* ViewController.swift in Sources */,
 				1883B3342595F19000BDBC09 /* PhotoSubCateogryViewController.swift in Sources */,
@@ -465,6 +476,7 @@
 				18ACD6ED2595185000573C8B /* ForgetPasswordPopupViewController.swift in Sources */,
 				1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */,
 				180DE1672584F3AA0026E05D /* MenuViewController.swift in Sources */,
+				185C62DB259F709F001023BB /* RegionTableViewCell.swift in Sources */,
 				1897E8A12590969A0058A6EF /* FileViewerViewController.swift in Sources */,
 				18197FD52587DA80009CCF2A /* RegistrationViewController.swift in Sources */,
 				189A75382595E48F00E4E879 /* PhotoCategoryController.swift in Sources */,

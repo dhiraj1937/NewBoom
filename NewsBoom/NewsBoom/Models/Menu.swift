@@ -234,3 +234,38 @@ public class VideoSubModel:Decodable{
         self.EntDt = EntDt
     }
 }
+
+struct SubRegion : Codable {
+    let Id : String?
+    let Title : String?
+    let EntDt : String?
+    let Status : String?
+    let child : [String]?
+
+
+    init(Id: String, Title: String,EntDt: String,Status:String,child:[String])  {
+        self.Id = Id
+        self.Title = Title
+        self.EntDt = EntDt
+        self.Status = Status
+        self.child = child
+    }
+
+}
+
+struct Region : Codable {
+    let Id : String?
+    let Title : String?
+    let EntDt : String?
+    let Status : String?
+    let child : [SubRegion]?
+
+    init(Id: String, Title: String,EntDt: String,Status:String,child:[SubRegion]) {
+        self.Id = Id
+        self.Title = Title
+        self.EntDt = EntDt
+        self.Status = Status
+        self.child = child
+    }
+
+}

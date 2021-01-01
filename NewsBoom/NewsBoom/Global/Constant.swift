@@ -12,7 +12,7 @@ class Constant{
     public static var appColor:UIColor = UIColor.init(hexString: "#C00A00");
     public static var languageType:Language = Language.Hindi;
     public static var  globalAdvertisement:AdvertiseModel?
-    
+    public static var IsSubscribe:Bool = false;
     public static var APIKey:String = "123456789123456789"
     private static var serverHindiURL:String = "https://projects.seawindsolution.com/News/Newsboom/Webservices/"
     private static var serverEnglishURL:String = "https://projects.seawindsolution.com/News/Newsboom/english/Webservices/"
@@ -48,6 +48,33 @@ class Constant{
         else{
             return Constant.serverEnglishURL
         }
+    }
+    
+    static func ResetURL(){
+        getAllChildCategoryByParentCategoryUrl = Constant.GetServerURL()+"getAllChildCategoryByParentCategory";
+        getAllParentCategoryDataUrl = Constant.GetServerURL()+"getAllParentCategoryData";
+        getCategoryDataUrl = Constant.GetServerURL()+"getCategoryData";
+        getRegionalDataUrl = Constant.GetServerURL()+"getRegionalData";
+        getBreakingDataUrl = Constant.GetServerURL()+"getBreakingData";
+        getLatestNewsDataUrl = Constant.GetServerURL()+"getLatestNewsData";
+        getmostdiscussNewsDataUrl = Constant.GetServerURL()+"getmostdiscussNewsData";
+        getmostreadNewsDataUrl = Constant.GetServerURL()+"getmostreadNewsData";
+        getNewsByCategoryIdUrl = Constant.GetServerURL()+"getNewsByCategoryId";
+        newslatterUrl = Constant.GetServerURL()+"newslatter";
+        getVideosByCategoryUrl = Constant.GetServerURL()+"getVideosByCategory";
+        getVideoCategoryUrl = Constant.GetServerURL()+"getVideoCategory";
+        getPhotographsUrl = Constant.GetServerURL()+"getPhotographs";
+        getPhotoCategoryUrl = Constant.GetServerURL()+"getPhotoCategory";
+        getPhotosByCategoryUrl = Constant.GetServerURL()+"getPhotosByCategory";
+        setNewsViewsCountUrl = Constant.GetServerURL()+"setNewsViewsCount";
+        getNewsSearchUrl = Constant.GetServerURL()+"getNewsSearch";
+        getAdvUrl = Constant.GetServerURL()+"getAdv";
+        getEpaperUrl = Constant.GetServerURL()+"getEpaper";
+        SendOTPUrl = Constant.GetServerURL()+"SendOTP";
+        customerRegistrationUrl = Constant.GetServerURL()+"customerRegistration";
+        getPageUrl = Constant.GetServerURL()+"getPage";
+        userLoginUrl = Constant.GetServerURL()+"userLogin";
+        forgotPasswordUrl = Constant.GetServerURL()+"forgotPassword";
     }
     
     static func GetCurrentVC()->UIViewController{

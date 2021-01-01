@@ -99,6 +99,29 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
             vcArray.append(subCategoryVC)
         }
         
+        let regionalVC = Constant.storyboard.instantiateViewController(withIdentifier: "RegionalViewController") as! RegionalViewController
+        if(Constant.languageType==Language.English){
+            if(titleArray.count>4){
+                titleArray.insert("Regional", at: 3)
+                vcArray.insert(regionalVC, at: 3);
+            }
+            else{
+                titleArray.append("Regional")
+                vcArray.append(regionalVC)
+            }
+        }
+        else{
+            if(titleArray.count>4){
+                titleArray.insert("राज्य", at: 3)
+                vcArray.insert(regionalVC, at: 3);
+            }
+            else{
+                titleArray.append("राज्य")
+                vcArray.append(regionalVC)
+            }
+        }
+        
+        
         let slidingContainerViewController = SlidingContainerViewController (
             parent: self,
             contentViewControllers: vcArray,

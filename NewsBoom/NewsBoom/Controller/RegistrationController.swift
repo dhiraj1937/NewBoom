@@ -58,6 +58,10 @@ extension RegistrationViewController{
     }
     
     @IBAction func btnResendOTP(){
+        txtEmail.resignFirstResponder();
+        txtPassword.resignFirstResponder();
+        txtName.resignFirstResponder();
+        txtOtp.resignFirstResponder();
         let registrationModle = RegisterModel(SignBy: "1", Firstname: txtName.text!, Lastname: txtName.text!, Email: txtEmail.text!, Password:txtPassword.text!)
         SendOTP(socialModel:registrationModle);
     }
@@ -77,6 +81,11 @@ extension RegistrationViewController{
             return;
         }
         let registrationModle = RegisterModel(SignBy: "1", Firstname: txtName.text!, Lastname: txtName.text!, Email: txtEmail.text!, Password:txtPassword.text!)
+        
+        txtEmail.resignFirstResponder();
+        txtPassword.resignFirstResponder();
+        txtName.resignFirstResponder();
+        txtOtp.resignFirstResponder();
         
         if(btnSubmit.tag==2){
             if (txtOtp.text?.count==0) {

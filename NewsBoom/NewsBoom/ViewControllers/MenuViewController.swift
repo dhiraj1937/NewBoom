@@ -23,7 +23,7 @@ class MenuViewController: UIViewController {
         menuList.append(Menu.init(name: "Photos", icon: "PhotosMenu"))
         menuList.append(Menu.init(name: "Videos", icon: "VideoMenu"))
         menuList.append(Menu.init(name: "Language", icon: "LanguageMenu"))
-        menuList.append(Menu.init(name: "E Book", icon: "EbookMenu"))
+        menuList.append(Menu.init(name: "E-Paper", icon: "EbookMenu"))
         menuList.append(Menu.init(name: "News Letter", icon: "NewsMenu"))
         menuList.append(Menu.init(name: "About Us", icon: "AboutUsMenu"))
         menuList.append(Menu.init(name: "Contact Us", icon: "ContactUsMenu"))
@@ -89,6 +89,17 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "EBookViewController") as? EBookViewController
             }
             Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
+        }
+        else if(indexPath.row == 5){
+            var vc:ForgetPasswordPopupViewController?=nil;
+            if #available(iOS 13.0, *) {
+                vc = ForgetPasswordPopupViewController.init(nibName: "ForgetPasswordPopupViewController", bundle: nil)
+            } else {
+                // Fallback on earlier versions
+                vc = ForgetPasswordPopupViewController.init(nibName: "ForgetPasswordPopupViewController", bundle: nil)
+            }
+            Constant.IsSubscribe = true;
+            Constant.GetCurrentVC().present(vc!, animated: true, completion: nil)
         }
         else if(indexPath.row == 6){
             var vc:OtherInfoViewController?=nil;
