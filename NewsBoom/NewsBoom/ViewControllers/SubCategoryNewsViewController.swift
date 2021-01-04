@@ -14,7 +14,7 @@ class SubCategoryNewsViewController: UIViewController{
     var isLoading:Bool = false;
     public var catID:String="0";
     var refreshControl = UIRefreshControl()
-    
+    public var headerTitle:String = ""
     override func viewDidLoad() {
         super.viewDidLoad();
         pageCount = 1
@@ -27,6 +27,8 @@ class SubCategoryNewsViewController: UIViewController{
               
             }
         }
+        self.title = headerTitle;
+       
     }
     
     @objc func Refresh(){
@@ -35,6 +37,7 @@ class SubCategoryNewsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
 }

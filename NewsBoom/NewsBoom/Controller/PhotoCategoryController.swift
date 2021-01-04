@@ -11,6 +11,11 @@ import SwiftyJSON
 extension PhotosCategoryViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listPhotos.count == 0 {
+                self.collectionPHoto.setEmptyMessage("No Data Found.")
+            } else {
+                self.collectionPHoto.restore()
+            }
         return listPhotos.count;
     }
     
@@ -71,6 +76,12 @@ extension PhotoSubCateogryViewController:UICollectionViewDelegate,UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listPhotos.count == 0 {
+                self.collectionPHoto.setEmptyMessage("No Data Found.")
+            } else {
+                self.collectionPHoto.restore()
+            }
+
         return listPhotos.count;
     }
     

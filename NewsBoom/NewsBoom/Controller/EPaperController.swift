@@ -11,6 +11,12 @@ import SwiftyJSON
 
 extension EBookViewController:UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listEpaper.count == 0 {
+                self.collectionView.setEmptyMessage("No Data Found.")
+            } else {
+                self.collectionView.restore()
+            }
+
         return listEpaper.count;
     }
     

@@ -11,6 +11,11 @@ import SwiftyJSON
 
 extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if listAllNews.count == 0 {
+                self.tblNews.setEmptyMessage("No Data Found.")
+            } else {
+                self.tblNews.restore()
+            }
         return listAllNews.count;
     }
     

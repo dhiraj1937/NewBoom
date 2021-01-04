@@ -10,6 +10,11 @@ import NotificationBannerSwift
 import SwiftyJSON
 extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if listNews.count == 0 {
+                self.tblNews.setEmptyMessage("No Data Found.")
+            } else {
+                self.tblNews.restore()
+            }
         return listNews.count;
     }
     

@@ -12,6 +12,11 @@ extension VideosCategoryViewController
 :UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listVideos.count == 0 {
+                self.collectionPHoto.setEmptyMessage("No Data Found.")
+            } else {
+                self.collectionPHoto.restore()
+            }
         return listVideos.count;
     }
     
@@ -69,6 +74,11 @@ extension VideoSubcategoryViewController:UICollectionViewDelegate,UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listVideos.count == 0 {
+                self.collectionPHoto.setEmptyMessage("No Data Found.")
+            } else {
+                self.collectionPHoto.restore()
+            }
         return listVideos.count;
     }
     

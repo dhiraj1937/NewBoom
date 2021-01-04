@@ -240,10 +240,10 @@ struct SubRegion : Codable {
     let Title : String?
     let EntDt : String?
     let Status : String?
-    let child : [String]?
+    let child : [SubRegion]?
 
 
-    init(Id: String, Title: String,EntDt: String,Status:String,child:[String])  {
+    init(Id: String, Title: String,EntDt: String,Status:String,child:[SubRegion])  {
         self.Id = Id
         self.Title = Title
         self.EntDt = EntDt

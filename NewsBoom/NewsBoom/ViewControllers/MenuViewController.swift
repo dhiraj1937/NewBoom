@@ -57,8 +57,16 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 3){
-            
-            UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[0])!, animated: true)
+            if(Constant.GetCurrentVC().navigationController!.containsViewController(ofKind: ChooseLanguageViewController.self)==false){
+                let loginVC = Constant.storyboard.instantiateViewController(withIdentifier: "ChooseLanguageViewController") as! ChooseLanguageViewController
+                Constant.GetCurrentVC().navigationController!.pushViewController(loginVC, animated: true)
+            }
+            else{
+                
+                Constant.GetCurrentVC().navigationController?.popToViewController((Constant.GetCurrentVC().navigationController?.GetViewControllerFromStack(ofKind: ChooseLanguageViewController.self))!, animated: true);
+                
+                //UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[0])!, animated: true)
+            }
         }
         else if(indexPath.row == 1){
             var vc:PhotosCategoryViewController?=nil;
@@ -109,7 +117,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
                 // Fallback on earlier versions
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
             }
-            vc!.slug = "about-us";
+            vc!.slug = "About-Us";
             vc!.headerTitle = "About Us"
             Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
@@ -121,7 +129,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
                 // Fallback on earlier versions
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
             }
-            vc!.slug = "contact-us";
+            vc!.slug = "Contact-Us";
             vc!.headerTitle = "Contact Us"
             Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
@@ -133,7 +141,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
                 // Fallback on earlier versions
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
             }
-            vc!.slug = "term-and-condition";
+            vc!.slug = "Terms-Conditions";
             vc!.headerTitle = "Terms and Condition"
             Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }
@@ -145,7 +153,7 @@ extension MenuViewController : UITableViewDataSource,UITableViewDelegate
                 // Fallback on earlier versions
                 vc = Constant.storyboard.instantiateViewController(withIdentifier: "OtherInfoViewController") as? OtherInfoViewController
             }
-            vc!.slug = "privacy-policy";
+            vc!.slug = "Privacy-Policy";
             vc!.headerTitle = "Privacy Policy"
             Constant.GetCurrentVC().navigationController?.pushViewController(vc!, animated: true)
         }

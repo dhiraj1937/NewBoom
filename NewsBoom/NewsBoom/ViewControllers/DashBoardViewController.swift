@@ -69,7 +69,13 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         }
         else{
             alert.addAction(UIAlertAction(title: "Login", style: .default , handler:{ (UIAlertAction)in
+                if(self.navigationController?.containsViewController(ofKind: LoginViewController.self)==false){
+                    let loginVC = Constant.storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self.navigationController?.pushViewController(loginVC, animated: true)
+                }
+                else{
                 UIApplication.topViewController()?.navigationController?.popToViewController((UIApplication.topViewController()?.navigationController?.viewControllers[1])!, animated: true)
+                }
             }))
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
@@ -145,6 +151,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
     }
     
     @objc func openCloseMenu(){
+        DashBoardViewController.revealController?.rearViewRevealWidth = self.view.frame.size.width-60;
         DashBoardViewController.revealController?.revealToggle(UIButton.init())
     }
    

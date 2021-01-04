@@ -27,6 +27,8 @@
 		181ADBD6258F44FB0011E81F /* SubCategoryNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD5258F44FB0011E81F /* SubCategoryNewsController.swift */; };
 		181ADBD9258F6B540011E81F /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */; };
 		181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181ADBEB258FB60B0011E81F /* EBookViewController.swift */; };
+		1834454125A058F900FE1CA4 /* SubRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834454025A058F900FE1CA4 /* SubRegionViewController.swift */; };
+		1834454425A05A5C00FE1CA4 /* SubRegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834454325A05A5C00FE1CA4 /* SubRegionController.swift */; };
 		1848A0E9258B47130007DF2C /* MostDiscussedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */; };
 		185C62D5259F611F001023BB /* RegionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C62D4259F611F001023BB /* RegionalViewController.swift */; };
 		185C62D8259F683C001023BB /* RegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C62D7259F683C001023BB /* RegionController.swift */; };
@@ -89,6 +91,8 @@
 		181ADBD5258F44FB0011E81F /* SubCategoryNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryNewsController.swift; sourceTree = "<group>"; };
 		181ADBD8258F6B540011E81F /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		181ADBEB258FB60B0011E81F /* EBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EBookViewController.swift; sourceTree = "<group>"; };
+		1834454025A058F900FE1CA4 /* SubRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRegionViewController.swift; sourceTree = "<group>"; };
+		1834454325A05A5C00FE1CA4 /* SubRegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRegionController.swift; sourceTree = "<group>"; };
 		1848A0E8258B47130007DF2C /* MostDiscussedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostDiscussedCollectionCell.swift; sourceTree = "<group>"; };
 		185C62D4259F611F001023BB /* RegionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionalViewController.swift; sourceTree = "<group>"; };
 		185C62D7259F683C001023BB /* RegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				1883B3362595F61D00BDBC09 /* VideosCategoryViewController.swift */,
 				18BC5A9C259642AA003B8E10 /* VideoSubcategoryViewController.swift */,
 				185C62D4259F611F001023BB /* RegionalViewController.swift */,
+				1834454025A058F900FE1CA4 /* SubRegionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				189A75372595E48F00E4E879 /* PhotoCategoryController.swift */,
 				1883B3392595F65500BDBC09 /* VideoController.swift */,
 				185C62D7259F683C001023BB /* RegionController.swift */,
+				1834454325A05A5C00FE1CA4 /* SubRegionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				18C48FD8258A0E660015C0A7 /* HomeController.swift in Sources */,
 				18C9C42E2583EE4900C8129D /* AppDelegate.swift in Sources */,
 				180DE17B25853A9B0026E05D /* MenuTableViewCell.swift in Sources */,
+				1834454125A058F900FE1CA4 /* SubRegionViewController.swift in Sources */,
 				181ADBEC258FB60B0011E81F /* EBookViewController.swift in Sources */,
 				180DE1532584E2780026E05D /* Constant.swift in Sources */,
 				18ACD6F125951B7900573C8B /* ForgetPasswordController.swift in Sources */,
@@ -486,6 +493,7 @@
 				180632CC258FBE2B00C33ECC /* EPaperController.swift in Sources */,
 				180526EA2590AAF400103698 /* OtherController.swift in Sources */,
 				18F8A2B5258B4337006A000F /* MostDiscussedTableViewCell.swift in Sources */,
+				1834454425A05A5C00FE1CA4 /* SubRegionController.swift in Sources */,
 				18938A0425893E250043E8C0 /* RegistrationController.swift in Sources */,
 				18C9C44D2584002300C8129D /* Helper.swift in Sources */,
 				180DE16F258501890026E05D /* ChooseLanguageViewController.swift in Sources */,

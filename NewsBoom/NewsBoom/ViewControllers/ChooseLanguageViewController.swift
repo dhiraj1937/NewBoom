@@ -16,8 +16,22 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        btnHindi.backgroundColor = UIColor.black
+        btnEnglish.backgroundColor = UIColor.black
+        if(Constant.languageType==Language.English){
+            btnEnglish.backgroundColor = Constant.appColor
+        }
+        else{
+            btnHindi.backgroundColor = Constant.appColor
+        }
+        Constant.ResetURL();
+    }
+    
     @IBAction func btnContinue(){
-        if((UserDefaults.standard.string(forKey: "IsLoggedIn")) != nil){
+        if((UserDefaults.standard.string(forKey: "IsLoggedIn")) != nil || (UserDefaults.standard.string(forKey: "IsFirstTime")) != nil)
+        {
             var menuVC:MenuViewController? = nil;
             var dashBoardVC:DashBoardViewController? = nil;
             if #available(iOS 13.0, *) {
@@ -38,6 +52,16 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
            
         }
         else{
+            if(Constant.languageType == Language.Hindi){
+               
+                UserDefaults.standard.setValue(1.description, forKey: "IsFirstTime")
+            }
+            else{
+                
+                UserDefaults.standard.setValue(0.description, forKey: "IsFirstTime")
+            }
+            
+            UserDefaults.standard.synchronize()
             if #available(iOS 13.0, *) {
                 let signupVC = Constant.storyboard.instantiateViewController(identifier:"LoginViewController") as LoginViewController
                 self.navigationController?.pushViewController(signupVC, animated: true);
@@ -56,10 +80,14 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
         sender.backgroundColor = Constant.appColor
         if(sender.tag==0){
             Constant.languageType = Language.Hindi
+            UserDefaults.standard.setValue(1.description, forKey: "IsFirstTime")
         }
         else{
             Constant.languageType = Language.English
+            UserDefaults.standard.setValue(0.description, forKey: "IsFirstTime")
         }
+       
+        UserDefaults.standard.synchronize()
         Constant.ResetURL();
     }
 }
