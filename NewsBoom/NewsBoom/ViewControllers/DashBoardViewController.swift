@@ -99,7 +99,7 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         titleArray.append("Home")
         vcArray.append(Constant.storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController)
         for blog in self.blogPosts {
-            titleArray.append(blog.Title)
+            titleArray.append(blog.Title.uppercased())
             let subCategoryVC = Constant.storyboard.instantiateViewController(withIdentifier: "SubCategoryNewsViewController") as! SubCategoryNewsViewController
             subCategoryVC.catID = blog.Id.description
             vcArray.append(subCategoryVC)
@@ -108,11 +108,11 @@ class DashBoardViewController: UIViewController,SlidingContainerViewControllerDe
         let regionalVC = Constant.storyboard.instantiateViewController(withIdentifier: "RegionalViewController") as! RegionalViewController
         if(Constant.languageType==Language.English){
             if(titleArray.count>4){
-                titleArray.insert("Regional", at: 3)
+                titleArray.insert("Regional".uppercased(), at: 3)
                 vcArray.insert(regionalVC, at: 3);
             }
             else{
-                titleArray.append("Regional")
+                titleArray.append("Regional".uppercased())
                 vcArray.append(regionalVC)
             }
         }

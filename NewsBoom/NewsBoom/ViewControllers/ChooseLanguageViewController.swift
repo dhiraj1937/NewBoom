@@ -26,6 +26,8 @@ class ChooseLanguageViewController: UIViewController,SWRevealViewControllerDeleg
         else{
             btnHindi.backgroundColor = Constant.appColor
         }
+        UserDefaults.standard.setValue(1.description, forKey: "IsFirstTime")
+        UserDefaults.standard.synchronize()
         Constant.ResetURL();
     }
     

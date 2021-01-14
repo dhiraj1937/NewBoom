@@ -20,7 +20,7 @@ extension RegionalViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionTableViewCell") as! RegionTableViewCell
-        cell.lbltitle.text = listRegion[indexPath.row].Title;
+        cell.lbltitle.text = listRegion[indexPath.row].Title?.uppercased();
         return cell;
     }
     

@@ -44,6 +44,13 @@ extension RegistrationViewController{
                 self.btnSubmit.tag=2;
                 self.txtOtp.alpha=1;
                 self.btnSubmit.setTitle("Submit", for: UIControl.State.normal)
+                
+                self.lblOTP.isHidden = false;
+                self.btnResend.isHidden = false;
+                self.txtOtp.isHidden = false
+                
+                self.btnSubmit.frame = CGRect(x: self.btnSubmit.frame.origin.x, y: self.btnResend.frame.origin.y+40, width: self.btnSubmit.frame.size.width, height: self.btnSubmit.frame.size.height)
+                
                 self.ShowAlertMessage(message:msg! , vc: self,title:"Success",bannerStyle: BannerStyle.success)
             }
             else{

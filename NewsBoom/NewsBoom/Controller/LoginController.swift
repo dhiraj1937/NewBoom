@@ -169,7 +169,8 @@ extension LoginViewController:GIDSignInDelegate{
               
             }
             else{
-                self.ShowAlertMessage(message:msg! , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
+                
+                self.ShowAlertMessage(message:"Invalid Email Or Password" , vc: self,title:"Failed",bannerStyle: BannerStyle.danger)
             }
             
         }, failure:{ (Error) in

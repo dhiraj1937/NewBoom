@@ -11,6 +11,7 @@ class OtherInfoViewController: UIViewController {
     @IBOutlet var lblTitle:UILabel!
     var slug:String?
     var headerTitle:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblTitle.text = headerTitle;
