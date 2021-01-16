@@ -264,13 +264,15 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
-            let nextTag = textField.tag + 1
-            if let nextResponder = textField.superview?.viewWithTag(nextTag) {
-                nextResponder.becomeFirstResponder()
-    
-            } else {
-                textField.resignFirstResponder()
-            }
+//            let nextTag = textField.tag + 1
+//            if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+//                nextResponder.becomeFirstResponder()
+//
+//            } else {
+//                textField.resignFirstResponder()
+//            }
+        
+        textField.resignFirstResponder()
             return true;
         }
     
@@ -284,7 +286,13 @@ extension UIViewController:UITextFieldDelegate,UITextViewDelegate {
         }
     }
     
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        Constant.txtTemp = textField;
+    }
     
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        Constant.txtTemp = nil;
+    }
 }
 
 class CustomBannerColors: BannerColorsProtocol {

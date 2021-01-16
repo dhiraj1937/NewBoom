@@ -32,12 +32,19 @@ class RegistrationViewController: UIViewController{
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
-         self.view.frame.origin.y = -150 // Move view 150 points upward
+        let userInfo: NSDictionary = sender.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        sv.contentInset = contentInsets
+        sv.scrollIndicatorInsets = contentInsets
     }
 
     @objc func keyboardWillHide(sender: NSNotification) {
-         self.view.frame.origin.y = 0 // Move view to original position
+        sv.contentInset = .zero
+            sv.scrollIndicatorInsets = .zero
     }
+   
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

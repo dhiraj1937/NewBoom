@@ -40,7 +40,7 @@ class Constant{
     public static var getPageUrl:String = Constant.GetServerURL()+"getPage";
     public static var userLoginUrl:String = Constant.GetServerURL()+"userLogin";
     public static var forgotPasswordUrl:String = Constant.GetServerURL()+"forgotPassword";
-    
+    public static var txtTemp:UITextField? = nil;
     static func GetServerURL()->String{
         if(Constant.languageType == Language.Hindi){
             return Constant.serverHindiURL;
